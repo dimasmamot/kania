@@ -1,36 +1,45 @@
-const express = require('express');
-const line = require('@line/bot-sdk');
+'use strict';
 
-//buat LINE SDK config untuk variabel secret & accesstoken
+const line = require('@line/bot-sdk');
+const express = require('express');
+
+// create LINE SDK config from env variables
 const config = {
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-	channelSecret: process.env.CHANNEL_SECRET,
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.CHANNEL_SECRET,
 };
 
-//buat LINE SDK Client
-const cliient = new line.Client(config);
+// create LINE SDK client
+const client = new line.Client(config);
 
-//buat apps express framework
+// create Express app
+// about Express itself: https://expressjs.com/
 const app = express();
 
-//register webhook handler pake middleware
-app.post('/webhook', middleware(config), (req,res)=>{
-	Promise
-		.all(req.body.events.map(handleEvent))
-		.then((result) => res.json(result));
+// register a webhook handler with middleware
+// about the middleware, please refer to doc
+app.post('/webhook', line.middleware(config), (req, res) => {
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result));
 });
 
-function handleEvent(event){
-	if(event.type !== 'message' || event.message.type !== 'text'){
-		return Promise.resolve(null);
-	}
+// event handler
+function handleEvent(event) {
+  if (event.type !== 'message' || event.message.type !== 'text') {
+    // ignore non-text-message event
+    return Promise.resolve(null);
+  }
 
-	const echo = {type: 'text', text: event.message.text };
+  // create a echoing text message
+  const echo = { type: 'text', text: event.message.text };
 
-	return client.replyMessage(event.replyToken, echo);
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
 }
 
+// listen on port
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-	console.log(`listening on ${port}`);
-})
+  console.log(`listening on ${port}`);
+});
