@@ -20,10 +20,10 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 app.use((err,req,res,next)=>{
   if(err instanceof SignatureValidationFailed){
     res.status(401).send(err.signature);
-    return;
+    return "wawawawa";
   }else if(err instanceof JSONParseError){
     res.status(400).send(err.raw);
-    return;
+    return "blablabla";
   }
   next(err);
 });
