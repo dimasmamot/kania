@@ -36,24 +36,23 @@ function handleEvent(event) {
   }
 
   const message = event.message;
+  const msg;
 
   if(message.type == 'text' && message.text === 'test'){
     if(event.source.type === 'room'){
-      return client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: 'Ini dari room ya ?',
-      });
+      msg = {type: 'tex', text: "Ini dari room revisi?"};
     }else if(event.source.type === 'group'){
-      return client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: 'Ini dari grup ?',
-      });
+      msg = {type: 'tex', text: "Ini dari grup?"};
     }else{
-      return client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: message.text,
-      });
+      msg = {type: 'text',text: message.text};
     } 
+
+    return client.replyMessage(event.replyToken, msg)
+      .catch((err) => {
+        if (err instanceof HTTPError){
+          console.error(err.statusCode);
+         }
+      });
   }
 }
 
