@@ -46,10 +46,7 @@ function handleEvent(event) {
       const msg = {type: 'text',text: message.text};
     } 
 
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: 'error aja terus'
-    });
+    return client.replyMessage(event.replyToken, msg);
   }
 }
 
