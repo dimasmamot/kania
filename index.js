@@ -36,18 +36,20 @@ function handleEvent(event) {
   }
 
   const message = event.message;
-  var msg = 'default msg';
 
   if(message.type == 'text' && message.text === 'test'){
     if(event.source.type === 'room'){
-      msg = {type: 'tex', text: "Ini dari room revisi?"};
+      const msg = {type: 'tex', text: "Ini dari room revisi?"};
     }else if(event.source.type === 'group'){
-      msg = {type: 'tex', text: "Ini dari grup?"};
+      const msg = {type: 'tex', text: "Ini dari grup?"};
     }else{
-      msg = {type: 'text',text: message.text};
+      const msg = {type: 'text',text: message.text};
     } 
 
-    return client.replyMessage(event.replyToken, msg);
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: 'error aja terus'
+    });
   }
 }
 
