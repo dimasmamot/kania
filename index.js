@@ -36,14 +36,15 @@ function handleEvent(event) {
   }
 
   const message = event.message;
+  var msg = {type: 'text', text: 'Default message'};
 
   if(message.type == 'text' && message.text === 'test'){
     if(event.source.type === 'room'){
-      const msg = {type: 'tex', text: "Ini dari room revisi?"};
+      msg = {type: 'text', text: 'Ini dari room revisi?'};
     }else if(event.source.type === 'group'){
-      const msg = {type: 'tex', text: "Ini dari grup?"};
+      msg = {type: 'text', text: 'Ini dari grup?'};
     }else{
-      const msg = {type: 'text',text: message.text};
+      msg = {type: 'text',text: message.text};
     } 
 
     return client.replyMessage(event.replyToken, msg);
