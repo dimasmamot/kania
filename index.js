@@ -36,7 +36,7 @@ function handleEvent(event) {
   }
 
   const message = event.message;
-  const msg;
+  const msg = 'default reply';
 
   if(message.type == 'text' && message.text === 'test'){
     if(event.source.type === 'room'){
