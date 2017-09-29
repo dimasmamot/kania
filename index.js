@@ -17,11 +17,6 @@ app.post('/webhook', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result));
-
-  const stream = client.getMessageContent(messageId);
-  stream.on('error', (err) => {
-    console.log(err.message);
-  })
 });
 
 app.use((err,req,res,next)=>{
