@@ -2,6 +2,8 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const JSONParseError = require('@line/bot-sdk/exceptions').JSONParseError;
+const SignatureValidationFailed = require('@line/bot-sdk/exceptions').SignatureValidationFailed
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -20,10 +22,10 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 app.use((err,req,res,next)=>{
   if(err instanceof SignatureValidationFailed){
     res.status(401).send(err.signature);
-    return "wawawawa";
+    return;
   }else if(err instanceof JSONParseError){
     res.status(400).send(err.raw);
-    return "blablabla";
+    return;
   }
   next(err);
 });
@@ -33,9 +35,26 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  const echo = { type: 'text', text: event.message.text };
+  const message = event.message;
 
-  return client.replyMessage(event.replyToken, echo);
+  if(message.type == 'text' && message.text === 'test'){
+    if(event.source.type === 'room'){
+      return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'Ini dari room ya ?',
+      });
+    }else if(event.source.type === 'group'){
+      return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'Ini dari grup ?',
+      });
+    }else{
+      return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: message.text,
+      });
+    } 
+  }
 }
 
 const port = process.env.PORT || 3000;
