@@ -45,17 +45,44 @@ con.connect(function(err){
 });
 
 function handleEvent(event) {
+  var msg;
+  const message = event.message; //Json field event (id, type, text)
+  const source = event.source; //Json field source (type, userId)
+
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
-  }
-  const message = event.message;
-  var msg = {type: 'text', text: 'Default message'};
+  }  
 
-  if(message.type == 'text' && message.text === 'test'){
+  if(message.type == 'text'){
 
-    if(event.source.type === 'room'){
+    con.query("SELECT * FROM user WHERE line_userid = "+source.userId+"", function(err, result, fields){
+      if(err)
+        throw err;
+
+      var userid;
+      var displayName;
+
+      if(result.length == 0){
+        client.getProfile(source.userId)
+          .then((profile) => {
+            userid = profile.userId;
+            displayName = profile.displayName;
+          }).catch((err) =>{
+            throw err;
+          });
+
+        var sqlInsert = "INSERT INTO user (line_userid,display_name,nickname,line_id) VALUES ("+userId+","+displayName+","+displayName+","+")";
+        con.query(sqlInsert, function(err, result){
+        if(err)
+          throw err;
+          console.log("User inserted");
+        });
+      }
+    });
+
+    if(source.type === 'room'){
       msg = {type: 'text', text: 'Ini dari room revisi?'};
-    }else if(event.source.type === 'group'){
+    }else if(source.type === 'group'){
       msg = {type: 'text', text: 'Ini dari grup?'};
     }else{
       msg = {type: 'text',text: message.text};

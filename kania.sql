@@ -5,15 +5,8 @@ DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS konfigurasi;
 DROP TABLE IF EXISTS eventlog;
 
-CREATE TABLE konfigurasi(
-	id_konfigurasi int NOT NULL AUTO_INCREMENT,
-	notifikasi int DEFAULT 1,
-	PRIMARY KEY (id_konfigurasi)
-);
-
 CREATE TABLE user(
 	id_user int NOT NULL AUTO_INCREMENT,
-	id_konfigurasi int NOT NULL,
 	line_userid varchar(100),
 	display_name varchar(100),
 	nickname varchar(100),
@@ -21,9 +14,10 @@ CREATE TABLE user(
 	longitude decimal(11,8),
 	latitude decimal(10,8),
 	line_id varchar(100),
-	last_req_timestamp timestamp,
-	PRIMARY KEY (id_user),
-	FOREIGN KEY (id_konfigurasi) REFERENCES konfigurasi(id_konfigurasi)
+	last_req_timestamp timestamp DEFAULT CURRENT_TIMESTAMP,
+	notifikasi int DEFAULT 1,
+	reminder int DEFAULT 1,
+	PRIMARY KEY (id_user)
 );
 
 CREATE TABLE tempat(
