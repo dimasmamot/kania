@@ -55,7 +55,7 @@ function handleEvent(event) {
 
   if(message.type == 'text'){
 
-    con.query("SELECT * FROM user WHERE line_userid = "+source.userId+"", function(err, result, fields){
+    con.query("SELECT * FROM user WHERE line_userid = '"+source.userId+"'", function(err, result, fields){
       if(err)
         throw err;
 
