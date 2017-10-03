@@ -9,7 +9,8 @@ const mysql = require('mysql');
 var con = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS
+  password: process.env.DB_PASS,
+  database: process.env DB_NAME
 });
 
 const config = {
@@ -37,21 +38,20 @@ app.use((err,req,res,next)=>{
   next(err);
 });
 
+con.connect(function(err){
+  if(err)
+    throw err;
+  console.log("Database connected");
+});
+
 function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
   }
-
   const message = event.message;
   var msg = {type: 'text', text: 'Default message'};
 
   if(message.type == 'text' && message.text === 'test'){
-
-    con.connect(function(err){
-      if(err)
-        throw err;
-      console.log("Database connected");
-    });
 
     if(event.source.type === 'room'){
       msg = {type: 'text', text: 'Ini dari room revisi?'};
