@@ -59,24 +59,20 @@ function handleEvent(event) {
       if(err)
         throw err;
 
-      var userid;
-      var displayName;
-
       if(result.length == 0){
         client.getProfile(source.userId)
-          .then((profile) => {
-            userid = profile.userId;
-            displayName = profile.displayName;
-          }).catch((err) =>{
-            throw err;
+        .then((profile) => {
+          var userid = profile.userId;
+          var displayName = profile.displayName;
+          var sqlInsert = "INSERT INTO user (line_userid,display_name,nickname,line_id) VALUES ("+userId+","+displayName+","+displayName+","+")";
+          con.query(sqlInsert, function(err, result){
+            if(err)
+              throw err;
+            console.log("User inserted");
           });
-
-        var sqlInsert = "INSERT INTO user (line_userid,display_name,nickname,line_id) VALUES ("+userId+","+displayName+","+displayName+","+")";
-        con.query(sqlInsert, function(err, result){
-        if(err)
+        }).catch((err) =>{
           throw err;
-          console.log("User inserted");
-        });
+        });        
       }
     });
 
