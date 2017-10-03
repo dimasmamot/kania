@@ -4,6 +4,19 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const JSONParseError = require('@line/bot-sdk/exceptions').JSONParseError;
 const SignatureValidationFailed = require('@line/bot-sdk/exceptions').SignatureValidationFailed
+const mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS
+});
+
+con.connect(function(err){
+  if(err)
+    throw err;
+  console.log("Database connected");
+});
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
