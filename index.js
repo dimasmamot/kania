@@ -64,7 +64,7 @@ function handleEvent(event) {
         .then((profile) => {
           var userid = profile.userId;
           var displayName = profile.displayName;
-          var sqlInsert = "INSERT INTO user (line_userid,display_name,nickname,line_id) VALUES ("+userId+","+displayName+","+displayName+","+")";
+          var sqlInsert = "INSERT INTO user (line_userid,display_name,nickname,line_id) VALUES ("+userid+","+displayName+","+displayName+","+")";
           con.query(sqlInsert, function(err, result){
             if(err)
               throw err;
