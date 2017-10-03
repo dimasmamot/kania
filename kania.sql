@@ -1,10 +1,15 @@
-DROP TABLE IF EXISTS 'revew';
-DROP TABLE IF EXISTS 'menu';
-DROP TABLE IF EXISTS 'tempat';
-DROP TABLE IF EXISTS 'user';
-DROP TABLE IF EXISTS 'konfigurasi';
-DROP TABLE IF EXISTS 'eventlog';
+DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS menu;
+DROP TABLE IF EXISTS tempat;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS konfigurasi;
+DROP TABLE IF EXISTS eventlog;
 
+CREATE TABLE konfigurasi(
+	id_konfigurasi int NOT NULL AUTO_INCREMENT,
+	notifikasi int DEFAULT 1,
+	PRIMARY KEY (id_konfigurasi)
+);
 
 CREATE TABLE user(
 	id_user int NOT NULL AUTO_INCREMENT,
@@ -62,7 +67,3 @@ CREATE TABLE eventlog(
 	PRIMARY KEY (id_eventlog)
 );
 
-CREATE TABLE konfigurasi(
-	id_konfigurasi int NOT NULL AUTO_INCREMENT,
-	notifikasi int DEFAULT 1
-)

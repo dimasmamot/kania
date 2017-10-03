@@ -12,12 +12,6 @@ var con = mysql.createConnection({
   password: process.env.DB_PASS
 });
 
-con.connect(function(err){
-  if(err)
-    throw err;
-  console.log("Database connected");
-});
-
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
@@ -28,8 +22,8 @@ const app = express();
 
 app.post('/webhook', line.middleware(config), (req, res) => {
   Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result));
+  .all(req.body.events.map(handleEvent))
+  .then((result) => res.json(result));
 });
 
 app.use((err,req,res,next)=>{
@@ -52,6 +46,13 @@ function handleEvent(event) {
   var msg = {type: 'text', text: 'Default message'};
 
   if(message.type == 'text' && message.text === 'test'){
+
+    con.connect(function(err){
+      if(err)
+        throw err;
+      console.log("Database connected");
+    });
+
     if(event.source.type === 'room'){
       msg = {type: 'text', text: 'Ini dari room revisi?'};
     }else if(event.source.type === 'group'){
