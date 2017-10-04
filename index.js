@@ -5,6 +5,7 @@ const express = require('express');
 const JSONParseError = require('@line/bot-sdk/exceptions').JSONParseError;
 const SignatureValidationFailed = require('@line/bot-sdk/exceptions').SignatureValidationFailed
 const mysql = require('mysql');
+const gMapClient = require('@google/maps');
 
 var db_config = {
   host: process.env.DB_HOST,
@@ -41,6 +42,10 @@ app.use((err,req,res,next)=>{
 });
 
 handleDisconnect();
+
+gMapClient.createClient({
+  key: process.env.API_KEY
+});
 
 function handleEvent(event) {
   var msg;
@@ -84,7 +89,19 @@ function handleEvent(event) {
 
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
-    
+    var placeQuery = {
+      location: [message.latitude, message.longitude],
+      radius: 1000,
+      rankby: "distance",
+      language: "id",
+      keyword: "tempat makan",
+      type: "restaurant"
+    }
+    gMapClient.placesNearby(placeQuery, function(err, response){
+      if(err)
+        console.log("Error query tempat : ",err);
+      console.log(response.json.results);
+    });
   }
 }
 
