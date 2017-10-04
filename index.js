@@ -6,12 +6,14 @@ const JSONParseError = require('@line/bot-sdk/exceptions').JSONParseError;
 const SignatureValidationFailed = require('@line/bot-sdk/exceptions').SignatureValidationFailed
 const mysql = require('mysql');
 
-var con = mysql.createConnection({
+var db_config = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME
-});
+};
+
+var con;
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -38,11 +40,7 @@ app.use((err,req,res,next)=>{
   next(err);
 });
 
-con.connect(function(err){
-  if(err)
-    throw err;
-  console.log("Database connected");
-});
+handleDisconnect();
 
 function handleEvent(event) {
   var msg;
@@ -85,7 +83,31 @@ function handleEvent(event) {
     } 
 
     return client.replyMessage(event.replyToken, msg);
+  }else if(message.type == 'location'){
+    
   }
+}
+
+function handleDisconnect(){
+  con = mysql.createConnection(db_config);
+
+  con.connect(function(err){
+    if(err){
+      console.log('Error connect dataase : ', err);
+      setTimeout(handleDisconnect, 2000);
+    }else{
+      console.log('Database connection succeed');
+    }
+  });
+
+  con.on('error', function(err){
+    console.log('database error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST'){
+      handleDisconnect();
+    }else{
+      throw err;
+    }
+  });
 }
 
 const port = process.env.PORT || 3000;
