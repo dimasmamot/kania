@@ -5,7 +5,6 @@ const express = require('express');
 const JSONParseError = require('@line/bot-sdk/exceptions').JSONParseError;
 const SignatureValidationFailed = require('@line/bot-sdk/exceptions').SignatureValidationFailed
 const mysql = require('mysql');
-const gMapClient = require('@google/maps');
 
 var db_config = {
   host: process.env.DB_HOST,
@@ -42,10 +41,6 @@ app.use((err,req,res,next)=>{
 });
 
 handleDisconnect();
-
-gMapClient.createClient({
-  key: process.env.API_KEY
-});
 
 function handleEvent(event) {
   var msg;
@@ -99,21 +94,25 @@ function handleEvent(event) {
       type: "restaurant"
     }
 
-    // gMapClient.placesNearby(placeQuery, function(err, response){
-    //   if(err)
-    //     console.log("Error query tempat : ",err);
-    //   console.log(response.json.results);
-    // });
-
-    gMapClient.geocode({
-      address: '1600 Amphitheatre Parkway, Mountain View, CA'
-    }, function(err,response){
-      if(err){
-        throw err
-      }else{
-        console.log(response.json.results);
-      }
+    var googleMapsClient = require('@google/maps').createClient({
+      key: process.env.API_KEY
     });
+
+    gMapClient.placesNearby(placeQuery, function(err, response){
+      if(err)
+        console.log("Error query tempat : ",err);
+      console.log(response.json.results);
+    });
+
+    // gMapClient.geocode({
+    //   address: '1600 Amphitheatre Parkway, Mountain View, CA'
+    // }, function(err,response){
+    //   if(err){
+    //     throw err
+    //   }else{
+    //     console.log(response.json.results);
+    //   }
+    // });
   }
 }
 
