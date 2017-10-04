@@ -98,7 +98,7 @@ function handleEvent(event) {
       key: process.env.API_KEY
     });
 
-    gMapClient.placesNearby(placeQuery, function(err, response){
+    googleMapsClient.placesNearby(placeQuery, function(err, response){
       if(err)
         console.log("Error query tempat : ",err);
       console.log(response.json.results);
