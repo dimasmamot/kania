@@ -52,7 +52,8 @@ function handleEvent(event) {
   const message = event.message; //Json field event (id, type, text)
   const source = event.source; //Json field source (type, userId)
 
-  if (event.type !== 'message' || event.message.type !== 'text') {
+  if (event.type !== 'message') {
+    console.log("Bukan request message");
     return Promise.resolve(null);
   }  
 
