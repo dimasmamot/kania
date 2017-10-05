@@ -144,42 +144,43 @@ function handleEvent(event) {
       for(var i=0; i<5 ;i++){
 
         console.log("event request photo "+i);
-        var photoQuery = {
-          maxwidth: 400,
-          photoreference: result.photos[0].photo_reference
-        };
-
-        googleMapsClient.placesPhoto(photoQuery, function(err, response){
-          if(err)
-            console.log("Error query place photo : ", err);
-
-          console.log(response.req.socket._host + "" + response.req.path);
-          
-          // var tmpObj = {
-          // "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-          // "title": result[i].name,
-          // "text": result[i].vicinity,
-          // "actions": [{
-          //   "type": "postback",
-          //   "label": "Aksi Kosong",
-          //   "data": "action=buy&itemid=111"
-          // },
-          // {
-          //   "type": "postback",
-          //   "label": "Aksi Kosong",
-          //   "data": "action=add&itemid=111"
-          // },
-          // {
-          //   "type": "uri",
-          //   "label": "Liat Map",
-          //   "uri": "http://example.com/page/111"
-          // }]
+        console.log("Photo reference "+i+" adalah "+result.photos[0]);
+        // var photoQuery = {
+        //   maxwidth: 400,
+        //   photoreference: result.photos[0].photo_reference
         // };
 
-        // tmpMsg.columns.push(tmpObj);
-        // console.log(tmpObj);
-        // console.log("sudah ke push "+i);
-        });
+        // googleMapsClient.placesPhoto(photoQuery, function(err, response){
+        //   if(err)
+        //     console.log("Error query place photo : ", err);
+
+        //   console.log(response.req.socket._host + "" + response.req.path);
+          
+        //   // var tmpObj = {
+        //   // "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+        //   // "title": result[i].name,
+        //   // "text": result[i].vicinity,
+        //   // "actions": [{
+        //   //   "type": "postback",
+        //   //   "label": "Aksi Kosong",
+        //   //   "data": "action=buy&itemid=111"
+        //   // },
+        //   // {
+        //   //   "type": "postback",
+        //   //   "label": "Aksi Kosong",
+        //   //   "data": "action=add&itemid=111"
+        //   // },
+        //   // {
+        //   //   "type": "uri",
+        //   //   "label": "Liat Map",
+        //   //   "uri": "http://example.com/page/111"
+        //   // }]
+        // // };
+
+        // // tmpMsg.columns.push(tmpObj);
+        // // console.log(tmpObj);
+        // // console.log("sudah ke push "+i);
+        // });
       }
 
       // console.log(tmpMsg);
