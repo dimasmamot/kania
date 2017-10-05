@@ -124,32 +124,43 @@ function handleEvent(event) {
 
       console.log(response.json.results);
 
-      // var result = response.json.results;
-      
-      // for(var i=0; i<5 ;i++){
-      //   var tmpObj = {
-      //     "thumbnailImageUrl": result[i].icon,
-      //     "title": result[i].name,
-      //     "text": "description",
-      //     "actions": [{
-      //       "type": "postback",
-      //       "label": "Aksi Kosong",
-      //       "data": "action=buy&itemid=111"
-      //     },
-      //     {
-      //       "type": "postback",
-      //       "label": "Aksi Kosong",
-      //       "data": "action=add&itemid=111"
-      //     },
-      //     {
-      //       "type": "uri",
-      //       "label": "Liat Map",
-      //       "uri": "http://example.com/page/111"
-      //     }]
-      //   };
-      // }
+      var result = response.json.results;
 
-      // return client.replyMessage(event.replyToken, tmpMsg);
+      var tmpMsg = {
+        "type": "template",
+        "altText": "Makan disini aja",
+        "template": {
+          "type": "carousel",
+          "columns": []
+        }
+      }
+      
+      for(var i=0; i<5 ;i++){
+        var tmpObj = {
+          "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+          "title": result[i].name,
+          "text": result[i].vicinity,
+          "actions": [{
+            "type": "postback",
+            "label": "Aksi Kosong",
+            "data": "action=buy&itemid=111"
+          },
+          {
+            "type": "postback",
+            "label": "Aksi Kosong",
+            "data": "action=add&itemid=111"
+          },
+          {
+            "type": "uri",
+            "label": "Liat Map",
+            "uri": "http://example.com/page/111"
+          }]
+        };
+
+        tmpMsg.columns.push(tmpObj);
+      }
+
+      return client.replyMessage(event.replyToken, tmpMsg);
     });
 
   }
