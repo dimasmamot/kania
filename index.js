@@ -138,6 +138,7 @@ function handleEvent(event) {
       }
 
       console.log(tmpMsg);
+      console.log("https://" + response.req.socket._host + "" + response.req.path);
       
       for(var i=0; i<5 ;i++){
         var tmpObj = {
