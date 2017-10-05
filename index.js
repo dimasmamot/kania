@@ -141,7 +141,7 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       
-      for(var i=0; i<1 ;i++){
+      for(var i=0; i<5 ;i++){
 
         console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
