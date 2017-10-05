@@ -179,10 +179,10 @@ function handleEvent(event) {
           };
           // console.log(tmpObj);
           tmpMsg.template.columns.push(tmpObj);
-          console.log("sudah ke push "+i);
-          console.log(tmpMsg);
+          // console.log("sudah ke push "+i);
+          // console.log(tmpMsg);
 
-          if(i==3){
+          if(i==5){
             console.log("Selesai");
             console.log(tmpMsg);
             // return client.replyMessage(event.replyToken, tmpMsg);
