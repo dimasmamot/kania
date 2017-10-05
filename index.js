@@ -96,8 +96,9 @@ function handleEvent(event) {
       googleMapsClient.placesPhoto(photoQuery, function(err, response){
         if(err)
           console.log("Error query place photo : ", err);
-        
-        console.log(response.req._header.Host + "" + response.req.path);
+
+        console.log(response.req._header);
+        console.log(response.req._header.host + "" + response.req.path);
       });
     }  
 
