@@ -154,45 +154,9 @@ function handleEvent(event) {
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
           if(err)
             console.log("Error query place photo : ", err);
-
+          setImage(i, response);
           // console.log(response.req.socket._host + "" + response.req.path);
-          var myLoop = (function(){
-            if(response != null){
-
-              var tmpObj = {
-                "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-                "title": result[i].name,
-                "text": result[i].vicinity,
-                "actions": [{
-                  "type": "postback",
-                  "label": "Aksi Kosong",
-                  "data": "action=buy&itemid=111"
-                },
-                {
-                  "type": "postback",
-                  "label": "Aksi Kosong",
-                  "data": "action=add&itemid=111"
-                },
-                {
-                  "type": "uri",
-                  "label": "Liat Map",
-                  "uri": "http://example.com/page/111"
-                }]
-              };
-              // console.log(tmpObj);
-              tmpMsg.template.columns.push(tmpObj);
-              // console.log("sudah ke push "+i);
-              // console.log(tmpMsg);
-              console.log(i);
-              clearTimeout(myLoop);
-            }
-            else{
-              console.log("wew");
-              setTimeout(myLoop,1000);
-            }
-            
-          })(i);
-          myLoop;
+          set
 
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
@@ -203,6 +167,45 @@ function handleEvent(event) {
       }
     });
   }
+}
+function setImage(i , response){
+  var myLoop = (function(){
+    if(response != null){
+
+      var tmpObj = {
+        "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+        "title": result[i].name,
+        "text": result[i].vicinity,
+        "actions": [{
+          "type": "postback",
+          "label": "Aksi Kosong",
+          "data": "action=buy&itemid=111"
+        },
+        {
+          "type": "postback",
+          "label": "Aksi Kosong",
+          "data": "action=add&itemid=111"
+        },
+        {
+          "type": "uri",
+          "label": "Liat Map",
+          "uri": "http://example.com/page/111"
+        }]
+      };
+      // console.log(tmpObj);
+      tmpMsg.template.columns.push(tmpObj);
+      // console.log("sudah ke push "+i);
+      // console.log(tmpMsg);
+      console.log(i);
+      clearTimeout(myLoop);
+    }
+    else{
+      console.log("wew");
+      setTimeout(myLoop,1000);
+    }
+    
+  });
+  myLoop;
 }
 
 function handleDisconnect(){
