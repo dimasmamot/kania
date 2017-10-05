@@ -188,6 +188,7 @@ function handleEvent(event) {
             setTimeout(myLoop,1000);
           }
           myLoop();
+          console.log(tmpMsg.template.columns.length);
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
