@@ -183,6 +183,8 @@ function handleEvent(event) {
         });
       }
 
+      tmpMsg.columns.push("COba");
+
       console.log(tmpMsg);
 
       // return client.replyMessage(event.replyToken, tmpMsg);
