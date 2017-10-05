@@ -160,6 +160,8 @@ function handleEvent(event) {
         };
 
         tmpMsg.columns.push(tmpObj);
+        console.log(tmpObj);
+        console.log("sudah ke push "+i);
       }
 
       console.log(tmpMsg);
