@@ -177,15 +177,15 @@ function handleEvent(event) {
               "uri": "http://example.com/page/111"
             }]
           };
-          console.log(tmpObj);
+          // console.log(tmpObj);
           tmpMsg.template.columns.push(tmpObj);
-          console.log("sudah ke push "+i);
+          // console.log("sudah ke push "+i);
         });
       }
 
       console.log(tmpMsg);
 
-      return client.replyMessage(event.replyToken, tmpMsg);
+      // return client.replyMessage(event.replyToken, tmpMsg);
     });
 
   }
