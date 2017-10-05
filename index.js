@@ -152,10 +152,34 @@ function handleEvent(event) {
 
           
         };
-        googleMapsClient.placesPhoto(photoQuery,i, function(err, response){
+        // var myFunction = function(i){
+        googleMapsClient.placesPhoto(photoQuery, function(err, response){
           if(err)
             console.log("Error query place photo : ", err);
-          setImage(i, googleMapsClient);
+          var tmpObj = {
+            "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+            "title": result[i].name,
+            "text": result[i].vicinity,
+            "actions": [{
+              "type": "postback",
+              "label": "Aksi Kosong",
+              "data": "action=buy&itemid=111"
+            },
+            {
+              "type": "postback",
+              "label": "Aksi Kosong",
+              "data": "action=add&itemid=111"
+            },
+            {
+              "type": "uri",
+              "label": "Liat Map",
+              "uri": "http://example.com/page/111"
+            }]
+          };
+        // console.log(tmpObj);
+          tmpMsg.template.columns.push(tmpObj);
+          console.log("sudah ke push "+i);
+          console.log(tmpMsg);
           console.log(photoQuery);
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
@@ -176,30 +200,7 @@ function setImage(i, googleMapsClient){
     var myLoop = (function(){
       if(j>3){
 
-        // var tmpObj = {
-        //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-        //   "title": result[i].name,
-        //   "text": result[i].vicinity,
-        //   "actions": [{
-        //     "type": "postback",
-        //     "label": "Aksi Kosong",
-        //     "data": "action=buy&itemid=111"
-        //   },
-        //   {
-        //     "type": "postback",
-        //     "label": "Aksi Kosong",
-        //     "data": "action=add&itemid=111"
-        //   },
-        //   {
-        //     "type": "uri",
-        //     "label": "Liat Map",
-        //     "uri": "http://example.com/page/111"
-        //   }]
-        // };
-        // // console.log(tmpObj);
-        // tmpMsg.template.columns.push(tmpObj);
-        // console.log("sudah ke push "+i);
-        // console.log(tmpMsg);
+        
         console.log(i);
         clearTimeout(myLoop);
       }
