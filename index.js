@@ -180,10 +180,11 @@ function handleEvent(event) {
           // console.log(tmpObj);
           tmpMsg.template.columns.push(tmpObj);
           // console.log("sudah ke push "+i);
+          console.log(tmpMsg);
         });
       }
 
-      console.log(tmpMsg);
+      // console.log(tmpMsg);
 
       // return client.replyMessage(event.replyToken, tmpMsg);
     });
