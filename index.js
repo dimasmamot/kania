@@ -141,7 +141,7 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       
-      for(var i=0; i<5 ;i++){
+      for(var i=0; i<1 ;i++){
 
         // console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
@@ -182,7 +182,7 @@ function handleEvent(event) {
           // console.log("sudah ke push "+i);
           // console.log(tmpMsg);
           // console.log(photoQuery);
-          if(tmpMsg.template.columns.length == 5){
+          if(tmpMsg.template.columns.length == 1){
             // console.log("Selesai");
             // console.log(tmpMsg);
             return client.replyMessage(event.replyToken, tmpMsg);
