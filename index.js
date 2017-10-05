@@ -104,6 +104,7 @@ function handleEvent(event) {
 
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
+    console.log("tempat dikirim");
     var placeQuery = {
       location: [message.latitude, message.longitude],
       radius: 1000,
@@ -122,7 +123,8 @@ function handleEvent(event) {
       if(err)
         console.log("Error query tempat : ",err);
 
-      console.log(response.json.results);
+      console.log("Query tempat berhasil");
+      // console.log(response.json.results);
 
       var result = response.json.results;
 
