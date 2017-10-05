@@ -141,7 +141,7 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       
-      for(var i=0; i<2 ;i++){
+      for(var i=0; i<result.length ;i++){
 
         // console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
@@ -182,7 +182,7 @@ function handleEvent(event) {
           // console.log("sudah ke push "+i);
           // console.log(tmpMsg);
           // console.log(photoQuery);
-          if(tmpMsg.template.columns.length == 2){
+          if(tmpMsg.template.columns.length == result.length){
             // console.log("Selesai");
             // console.log(tmpMsg);
             return client.replyMessage(event.replyToken, tmpMsg);
@@ -194,31 +194,7 @@ function handleEvent(event) {
     });
   }
 }
-function setImage(i, googleMapsClient){
 
-    // console.log(response.req.socket._host + "" + response.req.path);
-    var j = 0;
-    console.log("i:"+i);
-    var myLoop = (function(){
-      if(j>3){
-
-        
-        console.log(i);
-        clearTimeout(myLoop);
-      }
-      else{
-        j++;
-        setTimeout(myLoop,1000);
-      }
-      
-    });
-    myLoop();
-
-    
-  
-
-  
-}
 function handleDisconnect(){
   con = mysql.createConnection(db_config);
 
