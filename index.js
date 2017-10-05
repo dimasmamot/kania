@@ -169,7 +169,7 @@ function setImage(i, googleMapsClient){
 
     // console.log(response.req.socket._host + "" + response.req.path);
     var j = 0;
-    console.log("i:"+response);
+    console.log("i:"+i);
     var myLoop = (function(){
       if(j>3){
 
