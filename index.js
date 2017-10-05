@@ -153,14 +153,15 @@ function handleEvent(event) {
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
           if(err)
             console.log("Error query place photo : ", err);
-          console.log("googleMapsClient");
           setImage(i, googleMapsClient);
+          console.log(response);
+          if(tmpMsg.template.columns.length == 5){
+            console.log("Selesai");
+            console.log(tmpMsg);
+            return client.replyMessage(event.replyToken, tmpMsg);
+          }
         });
-        if(tmpMsg.template.columns.length == 5){
-          console.log("Selesai");
-          console.log(tmpMsg);
-          return client.replyMessage(event.replyToken, tmpMsg);
-        }
+        
       }
     });
   }
