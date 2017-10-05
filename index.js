@@ -156,8 +156,8 @@ function handleEvent(event) {
             console.log("Error query place photo : ", err);
 
           // console.log(response.req.socket._host + "" + response.req.path);
-          var myLoop = function(){
-            if(1>0){
+          var myLoop = (function(){
+            if(response != null){
 
               var tmpObj = {
                 "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
@@ -188,8 +188,8 @@ function handleEvent(event) {
             }
             console.log("wew");
             setTimeout(myLoop,1000);
-          }
-          myLoop(i);
+          })(i);
+          myLoop;
 
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
