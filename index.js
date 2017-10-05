@@ -170,60 +170,60 @@ function handleEvent(event) {
 }
 function tes(){console.log("tes")}
 function setImage(i){
-  // var j = 0;
-  // var myLoop = (function(){
-  //   console.log("j:"+j);
-  //   if(j > 2){
+  var j = 0;
+  var myLoop = (function(){
+    console.log("j:"+j);
+    if(j > 2){
 
-  //     // var tmpObj = {
-  //     //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-  //     //   "title": result[i].name,
-  //     //   "text": result[i].vicinity,
-  //     //   "actions": [{
-  //     //     "type": "postback",
-  //     //     "label": "Aksi Kosong",
-  //     //     "data": "action=buy&itemid=111"
-  //     //   },
-  //     //   {
-  //     //     "type": "postback",
-  //     //     "label": "Aksi Kosong",
-  //     //     "data": "action=add&itemid=111"
-  //     //   },
-  //     //   {
-  //     //     "type": "uri",
-  //     //     "label": "Liat Map",
-  //     //     "uri": "http://example.com/page/111"
-  //     //   }]
-  //     // };
-  //     // console.log(tmpObj);
-  //     // tmpMsg.template.columns.push(tmpObj);
-  //     // console.log("sudah ke push "+i);
-  //     // console.log(tmpMsg);
-  //     console.log("i:"+i);
-  //     clearTimeout(myLoop);
-  //   }
-  //   else{
-  //     // console.log("wew");
-  //     j++;
-  //     setTimeout(myLoop,1000);
-  //   }
+      // var tmpObj = {
+      //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+      //   "title": result[i].name,
+      //   "text": result[i].vicinity,
+      //   "actions": [{
+      //     "type": "postback",
+      //     "label": "Aksi Kosong",
+      //     "data": "action=buy&itemid=111"
+      //   },
+      //   {
+      //     "type": "postback",
+      //     "label": "Aksi Kosong",
+      //     "data": "action=add&itemid=111"
+      //   },
+      //   {
+      //     "type": "uri",
+      //     "label": "Liat Map",
+      //     "uri": "http://example.com/page/111"
+      //   }]
+      // };
+      // console.log(tmpObj);
+      // tmpMsg.template.columns.push(tmpObj);
+      // console.log("sudah ke push "+i);
+      // console.log(tmpMsg);
+      console.log("i:"+i);
+      clearTimeout(myLoop);
+    }
+    else{
+      // console.log("wew");
+      j++;
+      setTimeout(myLoop,1000);
+    }
     
-  // });
-  // myLoop;
-  var  j = 0;
-      var tes = (function() { 
-        console.log("j:"+j)
-        if(j > 2)
-        {
-            console.log("i:"+i);
-            clearTimeout(tes);
-        }
-        else{
-            j++;
-            setTimeout(tes,1000);
-        }
-       });
-      tes();
+  });
+  myLoop();
+  // var  j = 0;
+  //     var tes = (function() { 
+  //       console.log("j:"+j)
+  //       if(j > 2)
+  //       {
+  //           console.log("i:"+i);
+  //           clearTimeout(tes);
+  //       }
+  //       else{
+  //           j++;
+  //           setTimeout(tes,1000);
+  //       }
+  //      });
+  //     tes();
 }
 function handleDisconnect(){
   con = mysql.createConnection(db_config);
