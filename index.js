@@ -157,7 +157,7 @@ function handleEvent(event) {
 
           // console.log(response.req.socket._host + "" + response.req.path);
           var myLoop = function(){
-            if(response != null){
+            if(this.response != null){
 
               var tmpObj = {
                 "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
