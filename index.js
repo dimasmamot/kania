@@ -174,7 +174,7 @@ function handleEvent(event) {
           //   "label": "Liat Map",
           //   "uri": "http://example.com/page/111"
           // }]
-        };
+        // };
 
         // tmpMsg.columns.push(tmpObj);
         // console.log(tmpObj);
