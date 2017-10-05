@@ -141,7 +141,7 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       
-      for(var i=0; i<2 ;i++){
+      for(var i=0; i<5 ;i++){
 
         console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
@@ -182,7 +182,7 @@ function handleEvent(event) {
           // console.log("sudah ke push "+i);
           // console.log(tmpMsg);
 
-          if(tmpMsg.template.columns.length == 2){
+          if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
             return client.replyMessage(event.replyToken, tmpMsg);
