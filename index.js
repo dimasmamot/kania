@@ -179,8 +179,8 @@ function handleEvent(event) {
           };
           // console.log(tmpObj);
           tmpMsg.template.columns.push(tmpObj);
-          // console.log("sudah ke push "+i);
-          // console.log(tmpMsg);
+          console.log("sudah ke push "+i);
+          console.log(tmpMsg);
 
           if(i==3){
             console.log("Selesai");
