@@ -152,8 +152,9 @@ function handleEvent(event) {
 
           
         };
-        // var myFunction = function(i){
+        var myFunction = function(i){
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
+          console.log(i);
           if(err)
             console.log("Error query place photo : ", err);
           var tmpObj = {
@@ -176,7 +177,7 @@ function handleEvent(event) {
               "uri": "http://example.com/page/111"
             }]
           };
-        // console.log(tmpObj);
+          // console.log(tmpObj);
           tmpMsg.template.columns.push(tmpObj);
           console.log("sudah ke push "+i);
           console.log(tmpMsg);
@@ -187,7 +188,8 @@ function handleEvent(event) {
             return client.replyMessage(event.replyToken, tmpMsg);
           }
         });
-        
+      }
+       myFunction(i); 
       }
     });
   }
