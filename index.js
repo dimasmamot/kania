@@ -157,7 +157,7 @@ function handleEvent(event) {
 
           // console.log(response.req.socket._host + "" + response.req.path);
           var myLoop = function(){
-            if(this.response != null){
+            if(1>0){
 
               var tmpObj = {
                 "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
@@ -183,14 +183,14 @@ function handleEvent(event) {
               tmpMsg.template.columns.push(tmpObj);
               // console.log("sudah ke push "+i);
               // console.log(tmpMsg);
-              console.log(tmpObj.title);
+              console.log("tes");
               clearTimeout(myLoop);
             }
-            console.log(wew);
+            console.log("wew");
             setTimeout(myLoop,1000);
           }
           myLoop(i);
-}}}
+
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
