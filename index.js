@@ -181,13 +181,13 @@ function handleEvent(event) {
           tmpMsg.template.columns.push(tmpObj);
           // console.log("sudah ke push "+i);
           // console.log(tmpMsg);
-        });
 
-        if(i==4){
-          console.log("Selesai");
-          console.log(tmpMsg);
-          return client.replyMessage(event.replyToken, tmpMsg);
-        }
+          if(i==4){
+            console.log("Selesai");
+            console.log(tmpMsg);
+            return client.replyMessage(event.replyToken, tmpMsg);
+          }
+        });
       }
     });
   }
