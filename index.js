@@ -179,13 +179,13 @@ function handleEvent(event) {
           };
           // console.log(tmpObj);
           tmpMsg.columns.push(tmpObj);
-          // console.log("sudah ke push "+i);
+          console.log("sudah ke push "+i);
         });
       }
 
       console.log(tmpMsg);
 
-      return client.replyMessage(event.replyToken, tmpMsg);
+      // return client.replyMessage(event.replyToken, tmpMsg);
     });
 
   }
