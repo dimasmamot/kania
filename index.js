@@ -151,7 +151,7 @@ function handleEvent(event) {
           photoreference: result[i].photos[0].photo_reference
         };
 
-        setImage(i);
+        setImage(i, googleMapsClient);
         if(tmpMsg.template.columns.length == 5){
           console.log("Selesai");
           console.log(tmpMsg);
@@ -161,7 +161,7 @@ function handleEvent(event) {
     });
   }
 }
-function setImage(i){
+function setImage(i, googleMapsClient){
   googleMapsClient.placesPhoto(photoQuery, function(err, response){
   //   if(err)
   //     console.log("Error query place photo : ", err);
