@@ -190,12 +190,15 @@ function handleEvent(event) {
           }
           myLoop();
 
-          if(tmpMsg.template.columns.length == 5){
+          
+        });
+      }
+      for (var i = 0; i >= 0  ; i++) {
+        if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
             return client.replyMessage(event.replyToken, tmpMsg);
           }
-        });
       }
     });
   }
