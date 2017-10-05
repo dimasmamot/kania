@@ -162,14 +162,14 @@ function handleEvent(event) {
   }
 }
 function setImage(i){
-  googleMapsClient.placesPhoto(photoQuery, function(err, response){
-    if(err)
-      console.log("Error query place photo : ", err);
+  // googleMapsClient.placesPhoto(photoQuery, function(err, response){
+  //   if(err)
+  //     console.log("Error query place photo : ", err);
     // console.log(response.req.socket._host + "" + response.req.path);
     var j = 0;
     console.log("i:"+i);
     var myLoop = (function(){
-      if(response != null){
+      if(j>3){
 
         // var tmpObj = {
         //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
@@ -207,7 +207,7 @@ function setImage(i){
     myLoop();
 
     
-  });
+  // });
 
   
 }
