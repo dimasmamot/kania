@@ -182,7 +182,7 @@ function handleEvent(event) {
           // console.log("sudah ke push "+i);
           // console.log(tmpMsg);
 
-          if(i==5){
+          if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
             // return client.replyMessage(event.replyToken, tmpMsg);
