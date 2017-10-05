@@ -162,20 +162,52 @@ function handleEvent(event) {
   }
 }
 function setImage(i){
-  var  j = 0;
-      var tes = (function() { 
-        console.log("j:"+j)
-        if(j > 2)
-        {
-            console.log("i:"+i);
-            clearTimeout(tes);
-        }
-        else{
-            j++;
-            setTimeout(tes,1000);
-        }
-       });
-      tes();
+  googleMapsClient.placesPhoto(photoQuery, function(err, response){
+    if(err)
+      console.log("Error query place photo : ", err);
+    // console.log(response.req.socket._host + "" + response.req.path);
+    var j = 0;
+    console.log("i:"+i);
+    var myLoop = (function(){
+      if(response != null){
+
+        // var tmpObj = {
+        //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+        //   "title": result[i].name,
+        //   "text": result[i].vicinity,
+        //   "actions": [{
+        //     "type": "postback",
+        //     "label": "Aksi Kosong",
+        //     "data": "action=buy&itemid=111"
+        //   },
+        //   {
+        //     "type": "postback",
+        //     "label": "Aksi Kosong",
+        //     "data": "action=add&itemid=111"
+        //   },
+        //   {
+        //     "type": "uri",
+        //     "label": "Liat Map",
+        //     "uri": "http://example.com/page/111"
+        //   }]
+        // };
+        // // console.log(tmpObj);
+        // tmpMsg.template.columns.push(tmpObj);
+        // console.log("sudah ke push "+i);
+        // console.log(tmpMsg);
+        console.log(i);
+        clearTimeout(myLoop);
+      }
+      else{
+        j++;
+        setTimeout(myLoop,1000);
+      }
+      
+    });
+    myLoop();
+
+    
+  });
 
   
 }
