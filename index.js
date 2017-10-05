@@ -148,7 +148,8 @@ function handleEvent(event) {
         // console.log(result[i].photos[0].photo_reference);
         var photoQuery = {
           maxwidth: 400,
-          photoreference: result[i].photos[0].photo_reference
+          photoreference: result[i].photos[0].photo_reference,
+          myCustom:i
           
         };
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
