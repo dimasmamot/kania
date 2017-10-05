@@ -88,7 +88,6 @@ function handleEvent(event) {
     var placeQuery = {
       location: [message.latitude, message.longitude],
       radius: 1000,
-      rankby: "distance",
       language: "id",
       keyword: "tempat makan",
       type: "restaurant"
@@ -104,15 +103,6 @@ function handleEvent(event) {
       console.log(response.json.results);
     });
 
-    // gMapClient.geocode({
-    //   address: '1600 Amphitheatre Parkway, Mountain View, CA'
-    // }, function(err,response){
-    //   if(err){
-    //     throw err
-    //   }else{
-    //     console.log(response.json.results);
-    //   }
-    // });
   }
 }
 
