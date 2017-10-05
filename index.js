@@ -150,8 +150,12 @@ function handleEvent(event) {
           maxwidth: 400,
           photoreference: result[i].photos[0].photo_reference
         };
-
-        setImage(i, googleMapsClient);
+        googleMapsClient.placesPhoto(photoQuery, function(err, response){
+          if(err)
+            console.log("Error query place photo : ", err);
+          console.log("googleMapsClient");
+          setImage(i, googleMapsClient);
+        });
         if(tmpMsg.template.columns.length == 5){
           console.log("Selesai");
           console.log(tmpMsg);
@@ -162,10 +166,7 @@ function handleEvent(event) {
   }
 }
 function setImage(i, googleMapsClient){
-  console.log(googleMapsClient);
-  googleMapsClient.placesPhoto(photoQuery, function(err, response){
-    if(err)
-      console.log("Error query place photo : ", err);
+
     // console.log(response.req.socket._host + "" + response.req.path);
     var j = 0;
     console.log("i:"+response);
@@ -208,7 +209,7 @@ function setImage(i, googleMapsClient){
     myLoop();
 
     
-  });
+  
 
   
 }
