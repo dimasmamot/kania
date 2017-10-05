@@ -184,21 +184,19 @@ function handleEvent(event) {
               tmpMsg.template.columns.push(tmpObj);
               // console.log("sudah ke push "+i);
               // console.log(tmpMsg);
+              con.log(tmpObj.title);
               clearTimeout(myLoop);
             }
             setTimeout(myLoop,1000);
           }
-          myLoop();
+          myLoop(i);
 
-          
-        });
-      }
-      for (var i = 0; i >= 0  ; i++) {
-        if(tmpMsg.template.columns.length == 5){
+          if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
             return client.replyMessage(event.replyToken, tmpMsg);
           }
+        });
       }
     });
   }
