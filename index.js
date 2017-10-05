@@ -186,8 +186,11 @@ function handleEvent(event) {
               console.log(i);
               clearTimeout(myLoop);
             }
-            console.log("wew");
-            setTimeout(myLoop,1000);
+            else{
+              console.log("wew");
+              setTimeout(myLoop,1000);
+            }
+            
           })(i);
           myLoop;
 
