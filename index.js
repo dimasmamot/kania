@@ -148,13 +148,14 @@ function handleEvent(event) {
         // console.log(result[i].photos[0].photo_reference);
         var photoQuery = {
           maxwidth: 400,
-          photoreference: result[i].photos[0].photo_reference
+          photoreference: result[i].photos[0].photo_reference,
+          i:i
         };
-        googleMapsClient.placesPhoto(photoQuery, function(err, response){
+        googleMapsClient.placesPhoto(photoQuery, function(err, response, request){
           if(err)
             console.log("Error query place photo : ", err);
           setImage(i, googleMapsClient);
-          console.log(response);
+          console.log(request);
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
