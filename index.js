@@ -185,7 +185,7 @@ function handleEvent(event) {
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
-            // return client.replyMessage(event.replyToken, tmpMsg);
+            return client.replyMessage(event.replyToken, tmpMsg);
           }
         });
       }
