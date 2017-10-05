@@ -183,14 +183,11 @@ function handleEvent(event) {
           // console.log(tmpMsg);
         });
 
-        console.log(tmpMsg);
+        if(i==4){
+          return client.replyMessage(event.replyToken, tmpMsg);
+        }
       }
-
-      // console.log(tmpMsg);
-
-      // return client.replyMessage(event.replyToken, tmpMsg);
     });
-
   }
 }
 
