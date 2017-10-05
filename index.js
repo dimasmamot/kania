@@ -184,6 +184,8 @@ function handleEvent(event) {
         });
 
         if(i==4){
+          console.log("Selesai");
+          console.log(tmpMsg);
           return client.replyMessage(event.replyToken, tmpMsg);
         }
       }
