@@ -167,6 +167,7 @@ function setImage(i){
       console.log("Error query place photo : ", err);
     // console.log(response.req.socket._host + "" + response.req.path);
     var j = 0;
+    console.log("i:"+i);
     var myLoop = (function(){
       if(response != null){
 
