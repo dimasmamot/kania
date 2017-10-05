@@ -166,7 +166,6 @@ function handleEvent(event) {
         });
       }
     });
-    tes();
   }
 }
 function tes(){console.log("tes")}
@@ -211,6 +210,7 @@ function setImage(i){
     
   });
   myLoop;
+  console.log("setImage");
 }
 function handleDisconnect(){
   con = mysql.createConnection(db_config);
