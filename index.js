@@ -162,6 +162,7 @@ function handleEvent(event) {
   }
 }
 function setImage(i, googleMapsClient){
+  console.log(googleMapsClient);
   googleMapsClient.placesPhoto(photoQuery, function(err, response){
     if(err)
       console.log("Error query place photo : ", err);
