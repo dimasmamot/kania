@@ -97,8 +97,8 @@ function handleEvent(event) {
         if(err)
           console.log("Error query place photo : ", err);
 
-        console.log(response.req.socket._host);
-        // console.log(response.req._header.host + "" + response.req.path);
+        // console.log(response.req.socket._host);
+        console.log(response.req.socket._host + "" + response.req.path);
       });
     }  
 
