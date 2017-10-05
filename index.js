@@ -166,8 +166,10 @@ function handleEvent(event) {
         });
       }
     });
+    tes();
   }
 }
+function tes(){console.log("tes")}
 function setImage(i){
   var j = 0;
   var myLoop = (function(){
