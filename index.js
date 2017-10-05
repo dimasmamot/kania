@@ -145,7 +145,7 @@ function handleEvent(event) {
 
         console.log("event request photo "+i);
         console.log("Photo reference "+i+" adalah ");
-        console.log(result.photos);
+        console.log(result);
         // var photoQuery = {
         //   maxwidth: 400,
         //   photoreference: result.photos[0].photo_reference
