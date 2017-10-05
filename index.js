@@ -183,7 +183,7 @@ function handleEvent(event) {
               tmpMsg.template.columns.push(tmpObj);
               // console.log("sudah ke push "+i);
               // console.log(tmpMsg);
-              clearInterval(myLoop);
+              clearTimeout(myLoop);
             }
             setTimeout(myLoop,1000);
           }
