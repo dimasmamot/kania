@@ -149,10 +149,10 @@ function handleEvent(event) {
         var photoQuery = {
           maxwidth: 400,
           photoreference: result[i].photos[0].photo_reference,
-          myCustom:i
+
           
         };
-        googleMapsClient.placesPhoto(photoQuery, function(err, response){
+        googleMapsClient.placesPhoto(photoQuery,i, function(err, response){
           if(err)
             console.log("Error query place photo : ", err);
           setImage(i, googleMapsClient);
