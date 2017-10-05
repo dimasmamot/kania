@@ -141,8 +141,8 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       var resultLength = result.length;
-      if (resultLength > 5)
-        resultLength = 5;
+      if (resultLength > 4)
+        resultLength = 4;
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
