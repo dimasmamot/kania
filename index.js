@@ -124,7 +124,7 @@ function handleEvent(event) {
         console.log("Error query tempat : ",err);
 
       console.log("Query tempat berhasil");
-      // console.log(response.json.results);
+      console.log(response.json.results);
 
       var result = response.json.results;
 
