@@ -154,9 +154,9 @@ function handleEvent(event) {
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
           if(err)
             console.log("Error query place photo : ", err);
-
-          // console.log(response.req.socket._host + "" + response.req.path);
           setImage(i);
+          // console.log(response.req.socket._host + "" + response.req.path);
+          
 
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
@@ -168,62 +168,45 @@ function handleEvent(event) {
     });
   }
 }
-function tes(){console.log("tes")}
 function setImage(i){
   var j = 0;
   var myLoop = (function(){
-    console.log("j:"+j);
-    if(j > 2){
+    if(response != null){
 
-      // var tmpObj = {
-      //   "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-      //   "title": result[i].name,
-      //   "text": result[i].vicinity,
-      //   "actions": [{
-      //     "type": "postback",
-      //     "label": "Aksi Kosong",
-      //     "data": "action=buy&itemid=111"
-      //   },
-      //   {
-      //     "type": "postback",
-      //     "label": "Aksi Kosong",
-      //     "data": "action=add&itemid=111"
-      //   },
-      //   {
-      //     "type": "uri",
-      //     "label": "Liat Map",
-      //     "uri": "http://example.com/page/111"
-      //   }]
-      // };
+      var tmpObj = {
+        "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+        "title": result[i].name,
+        "text": result[i].vicinity,
+        "actions": [{
+          "type": "postback",
+          "label": "Aksi Kosong",
+          "data": "action=buy&itemid=111"
+        },
+        {
+          "type": "postback",
+          "label": "Aksi Kosong",
+          "data": "action=add&itemid=111"
+        },
+        {
+          "type": "uri",
+          "label": "Liat Map",
+          "uri": "http://example.com/page/111"
+        }]
+      };
       // console.log(tmpObj);
-      // tmpMsg.template.columns.push(tmpObj);
+      tmpMsg.template.columns.push(tmpObj);
       // console.log("sudah ke push "+i);
       // console.log(tmpMsg);
-      console.log("i:"+i);
+      console.log(i);
       clearTimeout(myLoop);
     }
     else{
-      // console.log("wew");
-      j++;
+      console.log("wew");
       setTimeout(myLoop,1000);
     }
     
   });
   myLoop();
-  // var  j = 0;
-  //     var tes = (function() { 
-  //       console.log("j:"+j)
-  //       if(j > 2)
-  //       {
-  //           console.log("i:"+i);
-  //           clearTimeout(tes);
-  //       }
-  //       else{
-  //           j++;
-  //           setTimeout(tes,1000);
-  //       }
-  //      });
-  //     tes();
 }
 function handleDisconnect(){
   con = mysql.createConnection(db_config);
