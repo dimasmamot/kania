@@ -81,7 +81,24 @@ function handleEvent(event) {
       msg = {type: 'text', text: 'Ini dari grup?'};
     }else{
       msg = {type: 'text',text: message.text};
-    } 
+    }
+
+    if(message.text == 'photo'){
+      var photoQuery = {
+        maxwidth: 400,
+        photoreference: "CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU"
+      };
+      var googleMapsClient = require('@google/maps').createClient({
+        key: process.env.API_KEY
+      });
+
+      googleMapsClient.placesPhoto(photoQuery, function(err, response){
+        if(err)
+          console.log("Error query place photo : ", err);
+
+        console.log(response.json.result);
+      });
+    }  
 
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
@@ -97,10 +114,40 @@ function handleEvent(event) {
       key: process.env.API_KEY
     });
 
+    var tmpMsg;
+
     googleMapsClient.placesNearby(placeQuery, function(err, response){
       if(err)
         console.log("Error query tempat : ",err);
+
       console.log(response.json.results);
+
+      // var result = response.json.results;
+      
+      // for(var i=0; i<5 ;i++){
+      //   var tmpObj = {
+      //     "thumbnailImageUrl": result[i].icon,
+      //     "title": result[i].name,
+      //     "text": "description",
+      //     "actions": [{
+      //       "type": "postback",
+      //       "label": "Aksi Kosong",
+      //       "data": "action=buy&itemid=111"
+      //     },
+      //     {
+      //       "type": "postback",
+      //       "label": "Aksi Kosong",
+      //       "data": "action=add&itemid=111"
+      //     },
+      //     {
+      //       "type": "uri",
+      //       "label": "Liat Map",
+      //       "uri": "http://example.com/page/111"
+      //     }]
+      //   };
+      // }
+
+      // return client.replyMessage(event.replyToken, tmpMsg);
     });
 
   }
