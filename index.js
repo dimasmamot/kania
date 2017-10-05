@@ -178,7 +178,7 @@ function handleEvent(event) {
             }]
           };
           // console.log(tmpObj);
-          // tmpMsg.columns.push(tmpObj);
+          tmpMsg.columns.push(tmpObj);
           // console.log("sudah ke push "+i);
         });
       }
