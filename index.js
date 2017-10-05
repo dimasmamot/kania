@@ -160,7 +160,9 @@ function handleEvent(event) {
         tmpMsg.columns.push(tmpObj);
       }
 
-      return client.replyMessage(event.replyToken, tmpMsg);
+      console.log(tmpMsg);
+
+      // return client.replyMessage(event.replyToken, tmpMsg);
     });
 
   }
