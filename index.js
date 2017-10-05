@@ -136,6 +136,8 @@ function handleEvent(event) {
           "columns": []
         }
       }
+
+      console.log(tmpMsg);
       
       for(var i=0; i<5 ;i++){
         var tmpObj = {
