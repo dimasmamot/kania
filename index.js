@@ -156,32 +156,37 @@ function handleEvent(event) {
             console.log("Error query place photo : ", err);
 
           // console.log(response.req.socket._host + "" + response.req.path);
-          
-          var tmpObj = {
-            "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-            "title": result[i].name,
-            "text": result[i].vicinity,
-            "actions": [{
-              "type": "postback",
-              "label": "Aksi Kosong",
-              "data": "action=buy&itemid=111"
-            },
-            {
-              "type": "postback",
-              "label": "Aksi Kosong",
-              "data": "action=add&itemid=111"
-            },
-            {
-              "type": "uri",
-              "label": "Liat Map",
-              "uri": "http://example.com/page/111"
-            }]
-          };
-          // console.log(tmpObj);
-          tmpMsg.template.columns.push(tmpObj);
-          // console.log("sudah ke push "+i);
-          // console.log(tmpMsg);
+          var myLoop = function(){
+            if(response != null){
 
+              var tmpObj = {
+                "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
+                "title": result[i].name,
+                "text": result[i].vicinity,
+                "actions": [{
+                  "type": "postback",
+                  "label": "Aksi Kosong",
+                  "data": "action=buy&itemid=111"
+                },
+                {
+                  "type": "postback",
+                  "label": "Aksi Kosong",
+                  "data": "action=add&itemid=111"
+                },
+                {
+                  "type": "uri",
+                  "label": "Liat Map",
+                  "uri": "http://example.com/page/111"
+                }]
+              };
+              // console.log(tmpObj);
+              tmpMsg.template.columns.push(tmpObj);
+              // console.log("sudah ke push "+i);
+              // console.log(tmpMsg);
+            }
+            setTimeout(myLoop,1000);
+          }
+          myLoop();
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
