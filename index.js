@@ -146,6 +146,7 @@ function handleEvent(event) {
         console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
         // console.log(result[i].photos[0].photo_reference);
+        console.log(tmpMsg.template.columns.length);
         var photoQuery = {
           maxwidth: 400,
           photoreference: result[i].photos[0].photo_reference
@@ -188,7 +189,7 @@ function handleEvent(event) {
             setTimeout(myLoop,1000);
           }
           myLoop();
-          console.log(tmpMsg.template.columns.length);
+
           if(tmpMsg.template.columns.length == 5){
             console.log("Selesai");
             console.log(tmpMsg);
