@@ -141,6 +141,7 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       var resultLength = result.length;
+      console.log(resultLength);
       if (resultLength > 3)
         resultLength = 3;
       for(var i=0; i<resultLength ;i++){
@@ -156,7 +157,7 @@ function handleEvent(event) {
         };
         var myFunction = function(i){
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
-          console.log(i);
+          // console.log(i);
           if(err)
             console.log("Error query place photo : ", err);
           var tmpObj = {
