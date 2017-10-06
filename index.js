@@ -141,9 +141,13 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       var resultLength = result.length;
-      console.log(resultLength);
+      
       if (resultLength > 3)
         resultLength = 3;
+      for (var i = 0; i < 5; i++) {
+        console.log("name["+i+"]:"+result[i].name);
+        console.log("vicinity["+i+"]:"+result[i].vicinity);
+      }
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
