@@ -142,8 +142,8 @@ function handleEvent(event) {
       // console.log(response.req.path);
       var resultLength = result.length;
       
-      if (resultLength > 3)
-        resultLength = 3;
+      if (resultLength > 5)
+        resultLength = 5;
       for (var i = 0; i < 5; i++) {
         console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
@@ -161,7 +161,7 @@ function handleEvent(event) {
         };
         var myFunction = function(i){
         googleMapsClient.placesPhoto(photoQuery, function(err, response){
-          // console.log(i);
+          console.log(i);
           if(err)
             console.log("Error query place photo : ", err);
           var tmpObj = {
