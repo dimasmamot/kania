@@ -204,6 +204,7 @@ function handleEvent(event) {
           });
         }
         // console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+        console.log("array object ke : " + i)
         console.log(result[i].photos);
         if(i==4)
           console.log("Loop terakhir");
