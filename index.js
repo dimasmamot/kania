@@ -157,6 +157,7 @@ function handleEvent(event) {
       }
 
       console.log("Hasilnya ada : "+resultLength);
+      var unusable = 0;
       // console.log("Hasilnya : ");
       // console.log(result);
       for(var i=0; i<resultLength;i++){
@@ -171,9 +172,10 @@ function handleEvent(event) {
           };
         }catch(err){
           // console.log("Ternyata di sini errornya",err);
-          limit = limit -1;
           continue;
         }
+
+        console.log("Data yang gabisa dipake ada : "+unusable);
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
             // console.log("host: "+response.req.socket._host + "" + response.req.path);
@@ -196,9 +198,21 @@ function handleEvent(event) {
             // console.log(tmpMsg);
             // console.log(photoQuery);
             if(tmpMsg.template.columns.length == limit){
-              console.log("Selesai");
+              console.log("Ketemu lima buah dan berhasil semua");
               // console.log(tmpMsg.template.columns.length);
               // console.log(tmpMsg);
+              return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
+                console.log("Reply error", err);
+              });
+            }else if(tmpMsg.template.columns.length == 0 && i == (resultLength-1)){ //Kalau item isinya kosong sedangkan indeks sudah sampai pucuk
+              console.log("Ngga ketemu apa apa");
+
+              var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+              return client.replyMessage(event.replyToken, msg);
+            }
+            else if(tmpMsg.template.columns.length < limit && i == (resultLength-1)){ //Kalau item isinya kurang dari lima tapi indeks sudah mentok
+              console.log("Ketemu cuman : "+tmpMsg.template.columns.length);
+
               return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
               });
@@ -206,16 +220,20 @@ function handleEvent(event) {
           });
         }
         // console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
-          console.log("array object ke : " + i);
-        try{
-          console.log(result[i].photos);
-        }catch(err){
-          console.log("Error parsing coy",err);
-        }
+        //   console.log("array object ke : " + i);
+        // try{
+        //   console.log(result[i].photos);
+        // }catch(err){
+        //   console.log("Error parsing coy",err);
+        // }
         myFunction(i); 
       }
-      // var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
-      // return client.replyMessage(event.replyToken, msg);
+
+      if(resultLength == 0){
+        var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+        return client.replyMessage(event.replyToken, msg);  
+      }
+      
     });
   }
 }
