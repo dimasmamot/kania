@@ -205,17 +205,17 @@ function handleEvent(event) {
               // console.log(tmpMsg);
               client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
-                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                var msg = {type: 'text', text: 'Kania bingung, ada yang salah, maaf ya, coba lagi deh'};
                 client.replyMessage(event.replyToken, msg);
               });
               // console.log("Isinya template message "+tmpMsg.template.columns.length);
             }else if(tmpMsg.template.columns.length == 0 && i == (resultLength-1)){ //Kalau item isinya kosong sedangkan indeks sudah sampai pucuk
               console.log("Ngga ketemu apa apa");
 
-              var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+              var msg = {type:'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
               client.replyMessage(event.replyToken, msg).catch((err) =>{
                 console.log("Reply error", err);
-                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                var msg = {type:'text', text:'Kania bingung, ada yang salah, maaf ya, coba lagi deh'};
                 client.replyMessage(event.replyToken, msg);
               });;
             }
@@ -224,7 +224,7 @@ function handleEvent(event) {
 
               client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
-                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                var msg = {type :'text', text:'Kania bingung, ada yang salah, maaf ya, coba lagi deh'};
                 client.replyMessage(event.replyToken, msg);
               });
             }
