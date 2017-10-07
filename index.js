@@ -200,10 +200,7 @@ function handleEvent(event) {
           });
         }
         console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
-        if(typeof result[i].photos == "undefined"){
-          console.log("Foto pada index "+i+"Tidak ditemukan");
-        }
-        myFunction(i); 
+        // myFunction(i); 
       }
     });
   }
