@@ -145,7 +145,7 @@ function handleEvent(event) {
       var limit = 5;
 
       console.log("Hasilnya ada : "+resultLength);
-      
+
       
       if(resultLength == 0){
         var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
@@ -220,13 +220,13 @@ function handleEvent(event) {
             }
           });
         }
-        // console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
-        //   console.log("array object ke : " + i);
-        // try{
-        //   console.log(result[i].photos);
-        // }catch(err){
-        //   console.log("Error parsing coy",err);
-        // }
+        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+        console.log("array object ke : " + i);
+        try{
+          console.log(result[i].photos);
+        }catch(err){
+          console.log("Error parsing coy",err);
+        }
         myFunction(i); 
       }
 
