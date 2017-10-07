@@ -76,32 +76,34 @@ function handleEvent(event) {
       }
     });
 
-    if(source.type === 'room'){
-      msg = {type: 'text', text: 'Ini dari room revisi?'};
-    }else if(source.type === 'group'){
-      msg = {type: 'text', text: 'Ini dari grup?'};
-    }else{
-      msg = {type: 'text',text: message.text};
+    if(message.text.toLowerCase() == "howto"){
+      msg = {type: 'text', text: 'Kalau kamu mau cari tempat makan, langsung aja share location kamu ke aku'};
+    }else if(message.text.toLowerCase() == "help"){
+      msg = {type: 'text', text: 'Kania masih tahap beta, jadi command-nya cuman ada tiga, "help", "howto", "tentang kania", dan buat yang mau intip source code kania bisa pake command "techdev" :D'};
+    }else if(message.text.toLowerCase() == "tentang kania"){
+      msg = {type: 'text', text: 'Kania bisa bantuin kamu cari tempat makan di sekitar kamu, kania dibantu sama kk google buat cari tempat makan terdekat'}
+    }else if(message.text.toLowerCase() == "techdev"){
+      msg = {type: 'text', text: 'Buat kalian yang mau belajar gimana caranya Kania bisa cari tempat makan di sekitar kamu, kamu bisa intip github Kania di sini : https://github.com/dimasmamot/kania, bebas buat dicabangin kok kak'};
     }
 
-    if(message.text == 'photo'){
-      console.log("event njaluk foto fired");
-      var photoQuery = {
-        maxwidth: 400,
-        photoreference: "CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU"
-      };
-      var googleMapsClient = require('@google/maps').createClient({
-        key: process.env.API_KEY
-      });
+    // if(message.text == 'photo'){
+    //   console.log("event njaluk foto fired");
+    //   var photoQuery = {
+    //     maxwidth: 400,
+    //     photoreference: "CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU"
+    //   };
+    //   var googleMapsClient = require('@google/maps').createClient({
+    //     key: process.env.API_KEY
+    //   });
 
-      googleMapsClient.placesPhoto(photoQuery, function(err, response){
-        if(err)
-          console.log("Error query place photo : ", err);
+    //   googleMapsClient.placesPhoto(photoQuery, function(err, response){
+    //     if(err)
+    //       console.log("Error query place photo : ", err);
 
-        // console.log(response.req.socket._host);
-        console.log(response.req.socket._host + "" + response.req.path);
-      });
-    }  
+    //     // console.log(response.req.socket._host);
+    //     console.log(response.req.socket._host + "" + response.req.path);
+    //   });
+    // }  
 
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
@@ -188,7 +190,7 @@ function handleEvent(event) {
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lat+","+result[i].geometry.location.lng+",16z"
+                "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lat+","+result[i].geometry.location.lng+",20z"
               }]
             };
             // console.log("Objek : "+i);
