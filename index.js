@@ -204,7 +204,7 @@ function handleEvent(event) {
               client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
               });
-              console.log("Isinya template message "tmpMsg.template.columns.length);
+              console.log("Isinya template message "+tmpMsg.template.columns.length);
             }else if(tmpMsg.template.columns.length == 0 && i == (resultLength-1)){ //Kalau item isinya kosong sedangkan indeks sudah sampai pucuk
               console.log("Ngga ketemu apa apa");
 
