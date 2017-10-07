@@ -145,6 +145,10 @@ function handleEvent(event) {
       
       if (resultLength > 5)
         resultLength = 5;
+      else if(resultLength = 0){
+        var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+        return client.replyMessage(event.replyToken, msg);
+      }
       for (var i = 0; i < 5; i++) {
         // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
