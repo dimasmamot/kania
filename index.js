@@ -231,12 +231,12 @@ function handleEvent(event) {
           });
         }
 
-        try{
-          console.log("array object ke : " + i);
-          console.log(result[i].photos);
-        }catch(err){
-          console.log("Error parsing coy",err);
-        }
+        // try{
+        //   console.log("array object ke : " + i);
+        //   console.log(result[i].photos);
+        // }catch(err){
+        //   console.log("Error parsing coy",err);
+        // }
         myFunction(i); 
       }
 
