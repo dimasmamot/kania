@@ -159,7 +159,7 @@ function handleEvent(event) {
         };
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
-            // console.log("host: "+response.req.socket._host + "" + response.req.path);
+            console.log("host: "+response.req.socket._host + "" + response.req.path);
             if(err)
               console.log("Error query place photo : ", err);
             var tmpObj = {
