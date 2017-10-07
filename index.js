@@ -188,7 +188,7 @@ function handleEvent(event) {
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lng+","+result[i].geometry.location.lat+",16z"
+                "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lat+","+result[i].geometry.location.lng+",16z"
               }]
             };
             // console.log("Objek : "+i);
