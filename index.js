@@ -179,19 +179,9 @@ function handleEvent(event) {
               "title": result[i].name,
               "text": result[i].vicinity,
               "actions": [{
-                "type": "postback",
-                "label": "Aksi Kosong",
-                "data": "action=buy&itemid=111"
-              },
-              {
-                "type": "postback",
-                "label": "Aksi Kosong",
-                "data": "action=add&itemid=111"
-              },
-              {
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "http://example.com/page/111"
+                "uri": "https://www.google.com/maps/@"+result[i].lng+","+result[i].lat+",16z"
               }]
             };
             console.log("Objek : "+i);
