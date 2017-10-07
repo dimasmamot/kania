@@ -142,10 +142,14 @@ function handleEvent(event) {
       // console.log(response.req.socket._host);
       // console.log(response.req.path);
       var resultLength = result.length;
+      var limit = 5;
       
       if(resultLength == 0){
         var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
         return client.replyMessage(event.replyToken, msg);
+      }
+      else if(resultLength <5){
+        limit = resultLength;
       }
       for (var i = 0; i < resultLength; i++) {
         // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
@@ -181,7 +185,7 @@ function handleEvent(event) {
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "https://www.google.com/maps/@"+result[i].lng+","+result[i].lat+",16z"
+                "uri": "https://www.google.com/maps/@"+result[i].lng+","+resuhlt[i].lat+",16z"
               }]
             };
             console.log("Objek : "+i);
@@ -190,7 +194,7 @@ function handleEvent(event) {
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
-            if(tmpMsg.template.columns.length == 5){
+            if(tmpMsg.template.columns.length == limit){
               console.log("Selesai");
               // console.log(tmpMsg.template.columns.length);
               // console.log(tmpMsg);
