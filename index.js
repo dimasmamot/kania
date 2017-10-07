@@ -203,21 +203,29 @@ function handleEvent(event) {
               console.log("Ketemu lima buah dan berhasil semua");
               // console.log(tmpMsg.template.columns.length);
               // console.log(tmpMsg);
-              return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
+              client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
+                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                client.replyMessage(event.replyToken, msg);
               });
               // console.log("Isinya template message "+tmpMsg.template.columns.length);
             }else if(tmpMsg.template.columns.length == 0 && i == (resultLength-1)){ //Kalau item isinya kosong sedangkan indeks sudah sampai pucuk
               console.log("Ngga ketemu apa apa");
 
               var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
-              return client.replyMessage(event.replyToken, msg);
+              client.replyMessage(event.replyToken, msg).catch((err) =>{
+                console.log("Reply error", err);
+                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                client.replyMessage(event.replyToken, msg);
+              });;
             }
             else if(tmpMsg.template.columns.length < limit && i == (resultLength-1)){ //Kalau item isinya kurang dari lima tapi indeks sudah mentok
               console.log("Ketemu cuman : "+tmpMsg.template.columns.length);
 
-              return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
+              client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
+                var msg = {type : 'text', text: "Kania bingung, ada yang salah, maaf ya, coba lagi deh"};
+                client.replyMessage(event.replyToken, msg);
               });
             }
           });
