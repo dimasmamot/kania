@@ -156,16 +156,20 @@ function handleEvent(event) {
 
       console.log("Hasilnya ada : "+resultLength);
       console.log("Hasilnya : ");
-      console.log(result);
+      // console.log(result);
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
         // console.log(result[i].photos[0].photo_reference);
-        var photoQuery = {
-          maxwidth: 400,
-          photoreference: result[i].photos[0].photo_reference,          
-        };
+        try{
+          var photoQuery = {
+            maxwidth: 400,
+            photoreference: result[i].photos[0].photo_reference,          
+          };
+        }catch(err){
+          console.log("Ternyata di sini errornya",err);
+        }
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
             // console.log("host: "+response.req.socket._host + "" + response.req.path);
@@ -208,14 +212,12 @@ function handleEvent(event) {
           });
         }
         // console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+          console.log("array object ke : " + i);
         try{
-          console.log("array object ke : " + i)
           console.log(result[i].photos);
         }catch(err){
           console.log("Error parsing coy",err);
         }
-        
-        
         // myFunction(i); 
       }
     });
