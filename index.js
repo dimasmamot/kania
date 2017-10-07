@@ -155,6 +155,8 @@ function handleEvent(event) {
       }
 
       console.log("Hasilnya ada : "+resultLength);
+      console.log("Hasilnya : ");
+      console.log(result);
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
