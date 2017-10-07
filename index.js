@@ -143,19 +143,17 @@ function handleEvent(event) {
       // console.log(response.req.path);
       var resultLength = result.length;
       
-      if (resultLength > 5)
-        resultLength = 5;
-      else if(resultLength = 0){
+      if(resultLength == 0){
         var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
         return client.replyMessage(event.replyToken, msg);
       }
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < resultLength; i++) {
         // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
 
       console.log("Hasilnya ada : "+resultLength);
-      console.log("Hasilnya : ");
+      // console.log("Hasilnya : ");
       // console.log(result);
       for(var i=0; i<resultLength ;i++){
 
@@ -169,6 +167,7 @@ function handleEvent(event) {
           };
         }catch(err){
           console.log("Ternyata di sini errornya",err);
+          continue;
         }
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
@@ -201,7 +200,7 @@ function handleEvent(event) {
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
-            if(tmpMsg.template.columns.length == resultLength){
+            if(tmpMsg.template.columns.length == 5){
               console.log("Selesai");
               console.log(tmpMsg.template.columns.length);
               console.log(tmpMsg);
