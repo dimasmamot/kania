@@ -161,8 +161,8 @@ function handleEvent(event) {
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
 
-      console.log("Hasilnya : ");
-      console.log(result);
+      // console.log("Hasilnya : ");
+      // console.log(result);
       for(var i=0; i<resultLength;i++){
 
         // console.log("event request photo "+i);
@@ -203,6 +203,7 @@ function handleEvent(event) {
               console.log("Ketemu lima buah dan berhasil semua");
               // console.log(tmpMsg.template.columns.length);
               // console.log(tmpMsg);
+              console.log(tmpMsg.item);
               client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
                 var msg = {type: 'text', text: 'Kania bingung, ada yang salah, maaf ya, coba lagi deh'};
