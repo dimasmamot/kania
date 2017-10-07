@@ -143,6 +143,9 @@ function handleEvent(event) {
       // console.log(response.req.path);
       var resultLength = result.length;
       var limit = 5;
+
+      console.log("Hasilnya ada : "+resultLength);
+      
       
       if(resultLength == 0){
         var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
@@ -156,8 +159,6 @@ function handleEvent(event) {
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
 
-      console.log("Hasilnya ada : "+resultLength);
-      var unusable = 0;
       // console.log("Hasilnya : ");
       // console.log(result);
       for(var i=0; i<resultLength;i++){
@@ -188,7 +189,7 @@ function handleEvent(event) {
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "https://www.google.com/maps/@"+result[i].lng+","+result[i].lat+",16z"
+                "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lng+","+result[i].geometry.location.lat+",16z"
               }]
             };
             console.log("Objek : "+i);
