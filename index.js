@@ -203,7 +203,7 @@ function handleEvent(event) {
               console.log("Ketemu lima buah dan berhasil semua");
               // console.log(tmpMsg.template.columns.length);
               // console.log(tmpMsg);
-              console.log(tmpMsg.item);
+              console.log(tmpMsg.columns);
               client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
                 var msg = {type: 'text', text: 'Kania bingung, ada yang salah, maaf ya, coba lagi deh'};
