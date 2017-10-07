@@ -46,6 +46,7 @@ function handleEvent(event) {
   var msg;
   const message = event.message; //Json field event (id, type, text)
   const source = event.source; //Json field source (type, userId)
+  var replyToken = event.replyToken;
 
   if (event.type !== 'message') {
     console.log("Bukan request message");
@@ -192,7 +193,9 @@ function handleEvent(event) {
               console.log("Selesai");
               console.log(tmpMsg.template.columns.length);
               console.log(tmpMsg);
-              return client.replyMessage(event.replyToken, tmpMsg);
+              client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
+                console.log("Reply error", err);
+              });
             }
           });
         }
