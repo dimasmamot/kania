@@ -159,8 +159,8 @@ function handleEvent(event) {
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
 
-      // console.log("Hasilnya : ");
-      // console.log(result);
+      console.log("Hasilnya : ");
+      console.log(result);
       for(var i=0; i<resultLength;i++){
 
         // console.log("event request photo "+i);
