@@ -189,7 +189,7 @@ function handleEvent(event) {
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
-            if(tmpMsg.template.columns.length == resultLength){
+            if(tmpMsg.template.columns.length == 2){
               console.log("Selesai");
               console.log(tmpMsg.template.columns.length);
               console.log(tmpMsg);
@@ -199,6 +199,7 @@ function handleEvent(event) {
             }
           });
         }
+        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference)
         myFunction(i); 
       }
     });
