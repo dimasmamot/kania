@@ -191,16 +191,16 @@ function handleEvent(event) {
                 "uri": "https://www.google.com/maps/@"+result[i].geometry.location.lng+","+result[i].geometry.location.lat+",16z"
               }]
             };
-            console.log("Objek : "+i);
-            console.log(tmpObj);
+            // console.log("Objek : "+i);
+            // console.log(tmpObj);
             tmpMsg.template.columns.push(tmpObj);
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
             if(tmpMsg.template.columns.length == limit){
               console.log("Ketemu lima buah dan berhasil semua");
-              // console.log(tmpMsg.template.columns.length);
-              // console.log(tmpMsg);
+              console.log(tmpMsg.template.columns.length);
+              console.log(tmpMsg);
               return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
               });
