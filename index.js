@@ -182,13 +182,14 @@ function handleEvent(event) {
                 "uri": "http://example.com/page/111"
               }]
             };
-            console.log(tmpObj);
+            // console.log(tmpObj);
             tmpMsg.template.columns.push(tmpObj);
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
             if(tmpMsg.template.columns.length == resultLength){
               console.log("Selesai");
+              console.log(tmpMsg.template.columns.length);
               console.log(tmpMsg);
               return client.replyMessage(event.replyToken, tmpMsg);
             }
