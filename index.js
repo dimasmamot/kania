@@ -153,6 +153,8 @@ function handleEvent(event) {
         // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
         // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
+
+      console.log("Hasilnya ada : "+resultLength);
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
