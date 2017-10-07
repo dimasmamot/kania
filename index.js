@@ -199,7 +199,8 @@ function handleEvent(event) {
             }
           });
         }
-        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+        // console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+        console.log(result[i].photos);
         // myFunction(i); 
       }
     });
