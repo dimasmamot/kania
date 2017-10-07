@@ -149,7 +149,7 @@ function handleEvent(event) {
         return client.replyMessage(event.replyToken, msg);
       }
       else if(resultLength <5){
-        limit = resultLength;
+        limit = result.length;
       }
       for (var i = 0; i < resultLength; i++) {
         // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
@@ -159,7 +159,7 @@ function handleEvent(event) {
       console.log("Hasilnya ada : "+resultLength);
       // console.log("Hasilnya : ");
       // console.log(result);
-      for(var i=0; i<resultLength ;i++){
+      for(var i=0; i<resultLength;i++){
 
         // console.log("event request photo "+i);
         // console.log("Photo reference "+i+" adalah ");
@@ -171,6 +171,7 @@ function handleEvent(event) {
           };
         }catch(err){
           // console.log("Ternyata di sini errornya",err);
+          limit = limit -1;
           continue;
         }
         var myFunction = function(i){
@@ -213,6 +214,8 @@ function handleEvent(event) {
         }
         myFunction(i); 
       }
+      var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+      return client.replyMessage(event.replyToken, msg);
     });
   }
 }
