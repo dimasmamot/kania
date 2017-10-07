@@ -157,8 +157,8 @@ function handleEvent(event) {
       }
 
       console.log("Hasilnya ada : "+resultLength);
-      console.log("Hasilnya : ");
-      console.log(result);
+      // console.log("Hasilnya : ");
+      // console.log(result);
       for(var i=0; i<resultLength;i++){
 
         // console.log("event request photo "+i);
@@ -186,7 +186,7 @@ function handleEvent(event) {
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
-                "uri": "https://www.google.com/maps/@"+result[i].lng+","+resuhlt[i].lat+",16z"
+                "uri": "https://www.google.com/maps/@"+result[i].lng+","+result[i].lat+",16z"
               }]
             };
             console.log("Objek : "+i);
