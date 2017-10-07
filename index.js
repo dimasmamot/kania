@@ -185,8 +185,8 @@ function handleEvent(event) {
               console.log("Error query place photo : ", err);
             var tmpObj = {
               "thumbnailImageUrl": "https://" + response.req.socket._host + "" + response.req.path,
-              "title": result[i].name,
-              "text": result[i].vicinity,
+              "title": trimString40(result[i].name),
+              "text": trimString60(result[i].vicinity),
               "actions": [{
                 "type": "uri",
                 "label": "Liat Map",
@@ -247,6 +247,22 @@ function handleEvent(event) {
       }
       
     });
+  }
+}
+
+function trimString40(stringnya){
+  if(stringnya.length >= 40){
+    return stringnya.substring(0,39);
+  }else{
+    return stringnya;
+  }
+}
+
+function trimString60(stringnya){
+  if(stringnya.length >= 60){
+    return stringnya.substring(0,59);
+  }else{
+    return stringnya;
   }
 }
 
