@@ -202,9 +202,9 @@ function handleEvent(event) {
             // console.log(photoQuery);
             if(tmpMsg.template.columns.length == 5){
               console.log("Selesai");
-              console.log(tmpMsg.template.columns.length);
-              console.log(tmpMsg);
-              client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
+              // console.log(tmpMsg.template.columns.length);
+              // console.log(tmpMsg);
+              return client.replyMessage(event.replyToken, tmpMsg).catch((err) =>{
                 console.log("Reply error", err);
               });
             }
@@ -217,7 +217,7 @@ function handleEvent(event) {
         }catch(err){
           console.log("Error parsing coy",err);
         }
-        // myFunction(i); 
+        myFunction(i); 
       }
     });
   }
