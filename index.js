@@ -189,7 +189,7 @@ function handleEvent(event) {
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
-            if(tmpMsg.template.columns.length == 2){
+            if(tmpMsg.template.columns.length == resultLength){
               console.log("Selesai");
               console.log(tmpMsg.template.columns.length);
               console.log(tmpMsg);
@@ -199,7 +199,10 @@ function handleEvent(event) {
             }
           });
         }
-        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference)
+        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
+        if(typeof result[i].photos == "undefined"){
+          console.log("Foto pada index "+i+"Tidak ditemukan");
+        }
         myFunction(i); 
       }
     });
