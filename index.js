@@ -145,8 +145,8 @@ function handleEvent(event) {
       if (resultLength > 5)
         resultLength = 5;
       for (var i = 0; i < 5; i++) {
-        console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
-        console.log("vicinity["+i+"]:"+result[i].vicinity);
+        // console.log("photoreference["+i+"]:"+result[i].photos[0].photo_reference);
+        // console.log("vicinity["+i+"]:"+result[i].vicinity);
       }
       for(var i=0; i<resultLength ;i++){
 
@@ -182,14 +182,14 @@ function handleEvent(event) {
                 "uri": "http://example.com/page/111"
               }]
             };
-            // console.log(tmpObj);
+            console.log(tmpObj);
             tmpMsg.template.columns.push(tmpObj);
             // console.log("sudah ke push "+i);
             // console.log(tmpMsg);
             // console.log(photoQuery);
             if(tmpMsg.template.columns.length == resultLength){
-              // console.log("Selesai");
-              // console.log(tmpMsg);
+              console.log("Selesai");
+              console.log(tmpMsg);
               return client.replyMessage(event.replyToken, tmpMsg);
             }
           });
