@@ -151,15 +151,15 @@ function handleEvent(event) {
       for(var i=0; i<resultLength ;i++){
 
         // console.log("event request photo "+i);
-        // console.log("Photo reference "+i+" adalah ");
-        // console.log(result[i].photos[0].photo_reference);
+        console.log("Photo reference "+i+" adalah ");
+        console.log(result[i].photos[0].photo_reference);
         var photoQuery = {
           maxwidth: 400,
           photoreference: result[i].photos[0].photo_reference,          
         };
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
-            console.log("host: "+response.req.socket._host + "" + response.req.path);
+            // console.log("host: "+response.req.socket._host + "" + response.req.path);
             if(err)
               console.log("Error query place photo : ", err);
             var tmpObj = {
