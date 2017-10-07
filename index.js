@@ -220,9 +220,9 @@ function handleEvent(event) {
             }
           });
         }
-        console.log("photo reference" +i+ ":" +result[i].photos[0].photo_reference);
-        console.log("array object ke : " + i);
+
         try{
+          console.log("array object ke : " + i);
           console.log(result[i].photos);
         }catch(err){
           console.log("Error parsing coy",err);
