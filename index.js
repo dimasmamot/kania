@@ -176,7 +176,6 @@ function handleEvent(event) {
           continue;
         }
 
-        console.log("Data yang gabisa dipake ada : "+unusable);
         var myFunction = function(i){
           googleMapsClient.placesPhoto(photoQuery, function(err, response){
             // console.log("host: "+response.req.socket._host + "" + response.req.path);
