@@ -166,7 +166,7 @@ function handleEvent(event) {
             photoreference: result[i].photos[0].photo_reference,          
           };
         }catch(err){
-          console.log("Ternyata di sini errornya",err);
+          // console.log("Ternyata di sini errornya",err);
           continue;
         }
         var myFunction = function(i){
