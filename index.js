@@ -214,8 +214,8 @@ function handleEvent(event) {
         }
         myFunction(i); 
       }
-      var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
-      return client.replyMessage(event.replyToken, msg);
+      // var msg = {type: 'text', text: 'Aku ngga bisa nemuin tempat makan dengan radius 1KM dari tempat kamu nih, coba jalan aja dulu'};
+      // return client.replyMessage(event.replyToken, msg);
     });
   }
 }
