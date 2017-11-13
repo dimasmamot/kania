@@ -184,7 +184,7 @@ function handleEvent(event) {
             {
               "thumbnailImageUrl": "https://image.ibb.co/eX0PXb/Featured.png",
               "title": "Ayam Goreng Nelongso",
-              "text": "Jl. Nginden Semolo 43, Surabaya"
+              "text": "Jl. Nginden Semolo 43, Surabaya",
               "actions": [
                 {
                   "type": "uri",
