@@ -183,7 +183,7 @@ function handleEvent(event) {
           "columns": [
             {
               "thumbnailImageUrl": "https://image.ibb.co/eX0PXb/Featured.png",
-              "title": "Ayam Goreng Nelongso",
+              "title": "|\u00B2| Ayam Goreng Nelongso",
               "text": "Jl. Nginden Semolo 43, Surabaya",
               "actions": [
                 {
