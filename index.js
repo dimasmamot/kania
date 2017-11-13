@@ -180,7 +180,20 @@ function handleEvent(event) {
         "altText": "Makan disini aja",
         "template": {
           "type": "carousel",
-          "columns": []
+          "columns": [
+            {
+              "thumbnailImageUrl": "https://image.ibb.co/eX0PXb/Featured.png",
+              "title": "Ayam Goreng Nelongso",
+              "text": "Jl. Nginden Semolo 43, Surabaya"
+              "actions": [
+                {
+                  "type": "uri",
+                  "label": "Liat Map",
+                  "uri": "https://www.google.com/maps/@-7.3001232,112.7660767,20z"
+                }
+              ]
+            }
+          ]
         }
       }
 
