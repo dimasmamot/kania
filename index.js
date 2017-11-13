@@ -84,6 +84,48 @@ function handleEvent(event) {
       msg = {type: 'text', text: 'Kania bisa bantuin kamu cari tempat makan di sekitar kamu, kania dibantu sama kk google buat cari tempat makan terdekat'}
     }else if(message.text.toLowerCase() == "techdev"){
       msg = {type: 'text', text: 'Buat kalian yang mau belajar gimana caranya Kania bisa cari tempat makan di sekitar kamu, kamu bisa intip github Kania di sini : https://github.com/dimasmamot/kania, bebas buat dicabangin kok kak'};
+    }else if(message.text.toLowerCase() == "voucher"){
+      msg = {
+        "type": "template",
+        "altText": "Voucher ini bisa buat makan kamu disekitarmu",
+        "template":{
+          "type": "image_carousel",
+          "columns": [
+            {
+              "imageUrl": "https://image.ibb.co/cVxXJG/Voucher_1.png",
+              "action": {
+                "type": "postback",
+                "label": "Redeem",
+                "data": "null"
+              }
+            },
+            {
+              "imageUrl": "https://image.ibb.co/jSPq5w/Voucher_2.png",
+              "action": {
+                "type": "postback",
+                "label": "Redeem",
+                "data": "null"
+              }
+            },
+            {
+              "imageUrl": "https://image.ibb.co/m8UeyG/Voucher_3.png",
+              "action": {
+                "type": "postback",
+                "label": "Redeem",
+                "data": "null"
+              }
+            },
+            {
+              "imageUrl": "https://image.ibb.co/d3DuXb/voucher_4.png",
+              "action": {
+                "type": "postback",
+                "label": "Redeem",
+                "data": "null"
+              }
+            }
+          ]
+        }
+      }
     }else{
       msg = {type: 'text', text: 'Aku masih belum diajarin ngomong itu sama developerku, kayanya sih dia masih sibuk, tapi kamu bisa coba chat "help" buat command yang aku pahamin :D'}
     }
