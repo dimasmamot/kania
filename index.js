@@ -84,6 +84,78 @@ function handleEvent(event) {
       msg = {type: 'text', text: 'Kania bisa bantuin kamu cari tempat makan di sekitar kamu, kania dibantu sama kk google buat cari tempat makan terdekat'}
     }else if(message.text.toLowerCase() == "techdev"){
       msg = {type: 'text', text: 'Buat kalian yang mau belajar gimana caranya Kania bisa cari tempat makan di sekitar kamu, kamu bisa intip github Kania di sini : https://github.com/dimasmamot/kania, bebas buat dicabangin kok kak'};
+    }else if(message.text.toLowerCase() == "Menu"){
+      msg = {
+        "type": "imagemap",
+        "baseUrl": "https://image.ibb.co/cZYGYR/Kania_Menu.png",
+        "altText": "Menunya Kania !!!",
+        "baseSize": {
+          "height": 512,
+          "width": 1024
+        },
+        "actions": [
+          {
+            "type": "message",
+            "text": "subscribe",
+            "area": {
+              "x": 0,
+              "y": 0,
+              "width": 341,
+              "height": 256
+            }
+          },
+          {
+            "type": "message",
+            "text": "promo",
+            "area": {
+              "x": 341,
+              "y": 0,
+              "width": 341,
+              "height": 256
+            }
+          },
+          {
+            "type": "message",
+            "text": "voucher",
+            "area": {
+              "x": 682,
+              "y": 0,
+              "width": 341,
+              "height": 256
+            }
+          },
+          {
+            "type":"message",
+            "text":"premium",
+            "area": {
+              "x" : 0,
+              "y" : -256,
+              "width": 341,
+              "height": 256
+            }
+          },
+          {
+            "type": "message",
+            "text": "help",
+            "area": {
+              "x" : 341,
+              "y" : -256,
+              "width": 341,
+              "height": 256
+            }
+          },
+          {
+            "type": "message",
+            "text": "about",
+            "area": {
+              "x" : 682,
+              "y" : -256,
+              "width": 341,
+              "height": 256
+            }
+          }
+        ]
+      }
     }else if(message.text.toLowerCase() == "voucher"){
       msg = {
         "type": "template",
