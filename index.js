@@ -156,7 +156,7 @@ function handleEvent(event) {
       }
       ]
     }
-  }else if(message.text.toLowerCase() == "voucher"){
+  }else if(message.text.toLowerCase() == "promo"){
     msg = {
       "type": "template",
       "altText": "Voucher ini bisa buat makan kamu disekitarmu",
@@ -189,6 +189,40 @@ function handleEvent(event) {
         },
         {
           "imageUrl": "https://image.ibb.co/d3DuXb/voucher_4.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        }
+        ]
+      }
+    }
+  }else if(message.text.toLowerCase() == "voucher"){
+    msg = {
+      "type": "template",
+      "altText": "Voucher ini bisa kamu redeem!",
+      "template":{
+        "type": "image_carousel",
+        "columns": [
+        {
+          "imageUrl": "https://image.ibb.co/ezb3Xm/kode_voucher1.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        },
+        {
+          "imageUrl": "https://image.ibb.co/g4NMJR/kode_voucher2.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        },
+        {
+          "imageUrl": "https://image.ibb.co/jg0VCm/kode_voucher3.png",
           "action": {
             "type": "postback",
             "label": "Redeem",
