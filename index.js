@@ -129,7 +129,7 @@ function handleEvent(event) {
             "text":"premium",
             "area": {
               "x" : 0,
-              "y" : -260,
+              "y" : 260,
               "width": 346,
               "height": 260
             }
@@ -139,7 +139,7 @@ function handleEvent(event) {
             "text": "help",
             "area": {
               "x" : 346,
-              "y" : -260,
+              "y" : 260,
               "width": 348,
               "height": 260
             }
@@ -149,7 +149,7 @@ function handleEvent(event) {
             "text": "about",
             "area": {
               "x" : 695,
-              "y" : -260,
+              "y" : 260,
               "width": 346,
               "height": 260
             }
@@ -220,7 +220,7 @@ function handleEvent(event) {
     //     console.log(response.req.socket._host + "" + response.req.path);
     //   });
     // }  
-    console.log(msg);
+    console.log(JSON.stringify(msg));
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
     console.log("tempat dikirim");
