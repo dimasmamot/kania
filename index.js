@@ -84,7 +84,7 @@ function handleEvent(event) {
       msg = {type: 'text', text: 'Kania bisa bantuin kamu cari tempat makan di sekitar kamu, kania dibantu sama kk google buat cari tempat makan terdekat'}
     }else if(message.text.toLowerCase() == "techdev"){
       msg = {type: 'text', text: 'Buat kalian yang mau belajar gimana caranya Kania bisa cari tempat makan di sekitar kamu, kamu bisa intip github Kania di sini : https://github.com/dimasmamot/kania, bebas buat dicabangin kok kak'};
-    }else if(message.text.toLowerCase() == "Menu"){
+    }else if(message.text.toLowerCase() == "menu"){
       msg = {
         "type": "imagemap",
         "baseUrl": "https://image.ibb.co/cZYGYR/Kania_Menu.png",
