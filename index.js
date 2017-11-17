@@ -90,117 +90,117 @@ function handleEvent(event) {
         "baseUrl": "https://sibpens.gravicodev.id/kania/menu",
         "altText": "Menunya Kania !!!",
         "baseSize": {
-          "height": 520,
-          "width": 1040
-        },
-        "actions": [
-          {
-            "type": "message",
-            "text": "subscribe",
-            "area": {
-              "x": 0,
-              "y": 0,
-              "width": 346,
-              "height": 260
-            }
-          },
-          {
-            "type": "message",
-            "text": "promo",
-            "area": {
-              "x": 346,
-              "y": 0,
-              "width": 348,
-              "height": 260
-            }
-          },
-          {
-            "type": "message",
-            "text": "voucher",
-            "area": {
-              "x": 695,
-              "y": 0,
-              "width": 346,
-              "height": 260
-            }
-          },
-          {
-            "type":"message",
-            "text":"premium",
-            "area": {
-              "x" : 0,
-              "y" : 260,
-              "width": 346,
-              "height": 260
-            }
-          },
-          {
-            "type": "message",
-            "text": "help",
-            "area": {
-              "x" : 346,
-              "y" : 260,
-              "width": 348,
-              "height": 260
-            }
-          },
-          {
-            "type": "message",
-            "text": "about",
-            "area": {
-              "x" : 695,
-              "y" : 260,
-              "width": 346,
-              "height": 260
-            }
-          }
-        ]
-      }
-    }else if(message.text.toLowerCase() == "voucher"){
-      msg = {
-        "type": "template",
-        "altText": "Voucher ini bisa buat makan kamu disekitarmu",
-        "template":{
-          "type": "image_carousel",
-          "columns": [
-            {
-              "imageUrl": "https://image.ibb.co/cVxXJG/Voucher_1.png",
-              "action": {
-                "type": "postback",
-                "label": "Redeem",
-                "data": "null"
-              }
-            },
-            {
-              "imageUrl": "https://image.ibb.co/jSPq5w/Voucher_2.png",
-              "action": {
-                "type": "postback",
-                "label": "Redeem",
-                "data": "null"
-              }
-            },
-            {
-              "imageUrl": "https://image.ibb.co/m8UeyG/Voucher_3.png",
-              "action": {
-                "type": "postback",
-                "label": "Redeem",
-                "data": "null"
-              }
-            },
-            {
-              "imageUrl": "https://image.ibb.co/d3DuXb/voucher_4.png",
-              "action": {
-                "type": "postback",
-                "label": "Redeem",
-                "data": "null"
-              }
-            }
-          ]
+         "height": 520,
+         "width": 1040
+       },
+       "actions": [
+       {
+         "type": "message",
+         "text": "subscribe",
+         "area": {
+           "x": 0,
+           "y": 0,
+           "width": 346,
+           "height": 260
+         }
+       },
+       {
+        "type": "message",
+        "text": "promo",
+        "area": {
+          "x": 346,
+          "y": 0,
+          "width": 348,
+          "height": 260
+        }
+      },
+      {
+        "type": "message",
+        "text": "voucher",
+        "area": {
+          "x": 695,
+          "y": 0,
+          "width": 346,
+          "height": 260
+        }
+      },
+      {
+        "type":"message",
+        "text":"premium",
+        "area": {
+          "x" : 0,
+          "y" : 260,
+          "width": 346,
+          "height": 260
+        }
+      },
+      {
+        "type": "message",
+        "text": "help",
+        "area": {
+          "x" : 346,
+          "y" : 260,
+          "width": 348,
+          "height": 260
+        }
+      },
+      {
+        "type": "message",
+        "text": "about",
+        "area": {
+          "x" : 695,
+          "y" : 260,
+          "width": 346,
+          "height": 260
         }
       }
-    }else{
-      msg = {type: 'text', text: 'Aku masih belum diajarin ngomong itu sama developerku, kayanya sih dia masih sibuk, tapi kamu bisa coba chat "help" buat command yang aku pahamin :D'}
+      ]
     }
+  }else if(message.text.toLowerCase() == "voucher"){
+    msg = {
+      "type": "template",
+      "altText": "Voucher ini bisa buat makan kamu disekitarmu",
+      "template":{
+        "type": "image_carousel",
+        "columns": [
+        {
+          "imageUrl": "https://image.ibb.co/cVxXJG/Voucher_1.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        },
+        {
+          "imageUrl": "https://image.ibb.co/jSPq5w/Voucher_2.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        },
+        {
+          "imageUrl": "https://image.ibb.co/m8UeyG/Voucher_3.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        },
+        {
+          "imageUrl": "https://image.ibb.co/d3DuXb/voucher_4.png",
+          "action": {
+            "type": "postback",
+            "label": "Redeem",
+            "data": "null"
+          }
+        }
+        ]
+      }
+    }
+  }else{
+    msg = {type: 'text', text: 'Aku masih belum diajarin ngomong itu sama developerku, kayanya sih dia masih sibuk, tapi kamu bisa coba chat "help" buat command yang aku pahamin :D'}
+  }
 
     // if(message.text == 'photo'){
     //   console.log("event njaluk foto fired");
@@ -220,7 +220,7 @@ function handleEvent(event) {
     //     console.log(response.req.socket._host + "" + response.req.path);
     //   });
     // }  
-    console.log(JSON.stringify(msg));
+    // console.log(JSON.stringify(msg));
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
     console.log("tempat dikirim");
@@ -253,18 +253,18 @@ function handleEvent(event) {
         "template": {
           "type": "carousel",
           "columns": [
+          {
+            "thumbnailImageUrl": "https://image.ibb.co/eX0PXb/Featured.png",
+            "title": "[\u2605\u2605\u2605] Ayam Goreng Nelongso ",
+            "text": "Jl. Nginden Semolo 43, Surabaya",
+            "actions": [
             {
-              "thumbnailImageUrl": "https://image.ibb.co/eX0PXb/Featured.png",
-              "title": "[\u2605\u2605\u2605] Ayam Goreng Nelongso ",
-              "text": "Jl. Nginden Semolo 43, Surabaya",
-              "actions": [
-                {
-                  "type": "uri",
-                  "label": "Liat Map",
-                  "uri": "https://www.google.com/maps/@-7.3001232,112.7660767,20z"
-                }
-              ]
+              "type": "uri",
+              "label": "Liat Map",
+              "uri": "https://www.google.com/maps/@-7.3001232,112.7660767,20z"
             }
+            ]
+          }
           ]
         }
       }
@@ -376,7 +376,7 @@ function handleEvent(event) {
       }
       
     });
-  }
+}
 }
 
 function trimString40(stringnya){
