@@ -87,11 +87,11 @@ function handleEvent(event) {
     }else if(message.text.toLowerCase() == "menu"){
       msg = {
         "type": "imagemap",
-        "baseUrl": "https://image.ibb.co/cZYGYR/Kania_Menu.png",
+        "baseUrl": "https://sibpens.gravicodev.id/kania/menu",
         "altText": "Menunya Kania !!!",
         "baseSize": {
-          "height": 512,
-          "width": 1024
+          "height": 520,
+          "width": 1040
         },
         "actions": [
           {
@@ -100,28 +100,28 @@ function handleEvent(event) {
             "area": {
               "x": 0,
               "y": 0,
-              "width": 341,
-              "height": 256
+              "width": 346,
+              "height": 260
             }
           },
           {
             "type": "message",
             "text": "promo",
             "area": {
-              "x": 341,
+              "x": 346,
               "y": 0,
-              "width": 341,
-              "height": 256
+              "width": 348,
+              "height": 260
             }
           },
           {
             "type": "message",
             "text": "voucher",
             "area": {
-              "x": 682,
+              "x": 695,
               "y": 0,
-              "width": 341,
-              "height": 256
+              "width": 346,
+              "height": 260
             }
           },
           {
@@ -129,29 +129,29 @@ function handleEvent(event) {
             "text":"premium",
             "area": {
               "x" : 0,
-              "y" : -256,
-              "width": 341,
-              "height": 256
+              "y" : -260,
+              "width": 346,
+              "height": 260
             }
           },
           {
             "type": "message",
             "text": "help",
             "area": {
-              "x" : 341,
-              "y" : -256,
-              "width": 341,
-              "height": 256
+              "x" : 346,
+              "y" : -260,
+              "width": 348,
+              "height": 260
             }
           },
           {
             "type": "message",
             "text": "about",
             "area": {
-              "x" : 682,
-              "y" : -256,
-              "width": 341,
-              "height": 256
+              "x" : 695,
+              "y" : -260,
+              "width": 346,
+              "height": 260
             }
           }
         ]
