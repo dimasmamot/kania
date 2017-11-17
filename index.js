@@ -220,7 +220,7 @@ function handleEvent(event) {
     //     console.log(response.req.socket._host + "" + response.req.path);
     //   });
     // }  
-
+    console.log(msg);
     return client.replyMessage(event.replyToken, msg);
   }else if(message.type == 'location'){
     console.log("tempat dikirim");
